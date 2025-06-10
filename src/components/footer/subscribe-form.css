@@ -1,0 +1,27 @@
+.footer__form {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.footer__input {
+    border: none;
+    font-family: var(--font-family), sans-serif;
+    height: 35px;
+    padding: 2px 4px;
+    flex-grow: 1;
+}
+
+.footer__input:hover {
+    background-color: var(--border-color);
+}
+
+.footer__button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.footer__button:hover .footer__button-icon path,
+.footer__button:focus .footer__button-icon path {
+    stroke: var(--red);
+}

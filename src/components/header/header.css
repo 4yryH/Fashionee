@@ -1,0 +1,32 @@
+.header {
+    max-width: 1800px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px auto 0 auto;
+}
+
+.header__wrapper-left-side {
+    display: flex;
+    gap: 66px;
+}
+
+.header__wrapper {
+    display: flex;
+    gap: 40px;
+}
+
+.header__wrapper-right-side {
+    display: flex;
+}
+
+.header__nav-list {
+    display: flex;
+    gap: 40px;
+}
+
+.header__user-menu-list {
+    display: flex;
+    gap: 40px;
+}

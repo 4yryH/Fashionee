@@ -1,0 +1,9 @@
+.header__nav-link {
+    font-family: var(--font-family), sans-serif;
+    color: #444444;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
