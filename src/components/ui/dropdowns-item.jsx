@@ -1,5 +1,4 @@
 import React from 'react';
-import "./dropdowns-item.css"
 
 // для выпадающего списка
 export function DropDownsItem(props) {

@@ -4,7 +4,6 @@ import {FooterDescription} from "./footer-description.jsx";
 import {FooterSubtitle} from "./footer-subtitle.jsx";
 import {FooterSocialItem} from "./footer-social-item.jsx";
 import {FooterTitle, FooterTitleHidden} from "./footer-title.jsx";
-import {FooterMenuItem} from "./footer-menu-item.jsx";
 import {SubscribeForm} from "./subscribe-form.jsx";
 import {FooterPaymentsItem} from "./footer-payments-item.jsx";
 import visaIcon from "../../assets/icons/visa.png";
@@ -12,6 +11,7 @@ import masterCardIcon from "../../assets/icons/mastercard.png";
 import paypalIcon from "../../assets/icons/paypal.png";
 import payoneer from "../../assets/icons/payoneer.png";
 import "./footer.css"
+import {Button} from "../ui/button.jsx";
 
 export function Footer() {
   return (
@@ -36,21 +36,41 @@ export function Footer() {
         <section className="footer__menu">
           <FooterTitle title="About"/>
           <ul className="footer__menu-list">
-            <FooterMenuItem title="About us"/>
-            <FooterMenuItem title="Collections"/>
-            <FooterMenuItem title="Shop"/>
-            <FooterMenuItem title="Blog"/>
-            <FooterMenuItem title="Contact us"/>
+            <Button asListItem={true}
+                    liProps={{className: "footer__menu-item"}}
+                    btnProps={{className: "footer__menu-link", content: "About us"}}/>
+            <Button asListItem={true}
+                    liProps={{className: "footer__menu-item"}}
+                    btnProps={{className: "footer__menu-link", content: "Collections"}}/>
+            <Button asListItem={true}
+                    liProps={{className: "footer__menu-item"}}
+                    btnProps={{className: "footer__menu-link", content: "Shop"}}/>
+            <Button asListItem={true}
+                    liProps={{className: "footer__menu-item"}}
+                    btnProps={{className: "footer__menu-link", content: "Blog"}}/>
+            <Button asListItem={true}
+                    liProps={{className: "footer__menu-item"}}
+                    btnProps={{className: "footer__menu-link", content: "Contact us"}}/>
           </ul>
         </section>
         <section className="footer__menu">
           <FooterTitle title="Useful Links"/>
           <ul className="footer__menu-list">
-            <FooterMenuItem title="Privacy Policy"/>
-            <FooterMenuItem title="Terms of use"/>
-            <FooterMenuItem title="Support"/>
-            <FooterMenuItem title="Shipping details"/>
-            <FooterMenuItem title="FAQs"/>
+            <Button asListItem={true}
+                    liProps={{className: "footer__menu-item"}}
+                    btnProps={{className: "footer__menu-link", content: "Privacy Policy"}}/>
+            <Button asListItem={true}
+                    liProps={{className: "footer__menu-item"}}
+                    btnProps={{className: "footer__menu-link", content: "Terms of use"}}/>
+            <Button asListItem={true}
+                    liProps={{className: "footer__menu-item"}}
+                    btnProps={{className: "footer__menu-link", content: "Support"}}/>
+            <Button asListItem={true}
+                    liProps={{className: "footer__menu-item"}}
+                    btnProps={{className: "footer__menu-link", content: "Shipping details"}}/>
+            <Button asListItem={true}
+                    liProps={{className: "footer__menu-item"}}
+                    btnProps={{className: "footer__menu-link", content: "FAQs"}}/>
           </ul>
         </section>
         <section className="footer__newsletter">

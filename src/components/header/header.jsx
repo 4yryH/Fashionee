@@ -1,21 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
 import {Logo} from "../ui/logo.jsx";
-import {NavigationPages} from "./navigation-pages.jsx";
-import {NavDropdown} from "./nav-dropdown.jsx";
 import {BurgerMenu} from "./burger-menu.jsx";
 import {Search} from "./search.jsx";
 import {UserInfo} from "./user.jsx";
 import {Favorite} from "./favorite.jsx";
 import {Cart} from "./cart.jsx";
-import "./header.css"
-
-// Создал массив с перечнем выпадающего списка Pages
-const dropDownPages = ["Home", "About", "Shop", "Contact", "Blog", "FAQ", "Cart", "Wishlist", "My profile",];
-
-// Создал массив с перечнем выпадающего списка Shop
-const dropDownShop = ["All", "Men", "Women", "Accessories", "New Arrival",];
+import {Button} from "../ui/button.jsx";
+import "./header.css";
+import DropdownsIcon from "../../assets/icons/dropdowns.svg?react";
+import {DropDownList} from "../ui/drop-down-list.jsx";
+import {dropDownPages, dropDownShop} from "../ui/drop-down-data.jsx";
 
 export function Header() {
+  // начальное состояние для dropdown
+  const [showShopDropdown, setShowShopDropdown] = useState(false);
+  const [showPagesDropdown, setShowPagesDropdown] = useState(false);
+
+  // при вызове одного dropdown - закрывается другой
+  const toggleShopDropdown = () => {
+    setShowShopDropdown(!showShopDropdown);
+    if (showPagesDropdown) setShowPagesDropdown(false);
+  };
+
+  const togglePagesDropdown = () => {
+    setShowPagesDropdown(!showPagesDropdown);
+    if (showShopDropdown) setShowShopDropdown(false);
+  };
+
   return (
     <header className="header">
       <div className="header__wrapper-left-side">
@@ -25,11 +36,55 @@ export function Header() {
         </div>
         <nav className="header__nav">
           <ul className="header__nav-list">
-            <NavigationPages page="Home"/>
-            <NavDropdown title="Pages" items={dropDownPages}/>
-            <NavDropdown title="Shop" items={dropDownShop}/>
-            <NavigationPages page="Blog"/>
-            <NavigationPages page="Contact"/>
+            <Button
+              asListItem={true}
+              liProps={{className: "header__nav-item"}}
+              btnProps={{className: "header__nav-link", content: "Home"}}
+            />
+            {/*кнопка с выпадающим списком*/}
+            <Button
+              asListItem={true}
+              liProps={{className: "header__nav-item"}}
+              btnProps={{
+                className: `header__nav-link ${showPagesDropdown ? "header__nav-link--current" : ""}`,
+                content: "Pages",
+                onClick: togglePagesDropdown,
+              }}
+              iconProps={{
+                className: "header__dropdowns-icon",
+                content: <DropdownsIcon/>,
+              }}
+            />
+            {showPagesDropdown && <DropDownList items={dropDownPages}
+                                                ulProps={{className: "header__dropdowns-list header__dropdowns-list-pages"}}/>}
+
+            {/*кнопка с выпадающим списком*/}
+            <Button
+              asListItem={true}
+              liProps={{className: "header__nav-item"}}
+              btnProps={{
+                className: `header__nav-link ${showShopDropdown ? "header__nav-link--current" : ""}`,
+                content: "Shop",
+                onClick: toggleShopDropdown,
+              }}
+              iconProps={{
+                className: "header__dropdowns-icon",
+                content: <DropdownsIcon/>,
+              }}
+            />
+            {showShopDropdown && <DropDownList items={dropDownShop}
+                                               ulProps={{className: "header__dropdowns-list header__dropdowns-list-shop"}}/>}
+
+            <Button
+              asListItem={true}
+              liProps={{className: "header__nav-item"}}
+              btnProps={{className: "header__nav-link", content: "Blog"}}
+            />
+            <Button
+              asListItem={true}
+              liProps={{className: "header__nav-item"}}
+              btnProps={{className: "header__nav-link", content: "Contact"}}
+            />
           </ul>
         </nav>
       </div>
