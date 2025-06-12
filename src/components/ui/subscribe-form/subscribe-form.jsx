@@ -1,5 +1,5 @@
 import React from 'react';
-import SendIcon from "../../assets/icons/send.svg?react"
+import SendIcon from "../../../assets/icons/send.svg?react"
 import "./subscribe-form.css"
 
 export function SubscribeForm() {

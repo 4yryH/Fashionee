@@ -1,5 +1,5 @@
 import React from "react";
-import UserIcon from "../../assets/icons/user.svg?react"
+import UserIcon from "../../../assets/icons/user.svg?react"
 
 export function UserInfo() {
   return (

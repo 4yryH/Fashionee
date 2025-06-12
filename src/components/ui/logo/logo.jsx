@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/logo.svg?url";
+import logo from "../../../assets/images/logo.svg?url";
 
 export function Logo ({className, width, height}) {
   return (

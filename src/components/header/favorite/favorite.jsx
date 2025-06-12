@@ -1,5 +1,5 @@
 import React from "react";
-import FavoriteIcon from "../../assets/icons/favorite.svg?react"
+import FavoriteIcon from "../../../assets/icons/favorite.svg?react"
 import "./favorite.css"
 
 export function Favorite() {

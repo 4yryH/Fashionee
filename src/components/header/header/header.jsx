@@ -1,15 +1,15 @@
 import React, {useState} from "react";
-import {Logo} from "../ui/logo.jsx";
-import {BurgerMenu} from "./burger-menu.jsx";
-import {Search} from "./search.jsx";
-import {UserInfo} from "./user.jsx";
-import {Favorite} from "./favorite.jsx";
-import {Cart} from "./cart.jsx";
-import {Button} from "../ui/button.jsx";
+import {Logo} from "../../ui/logo/logo.jsx";
+import {BurgerMenu} from "../burger-menu/burger-menu.jsx";
+import {Search} from "../search/search.jsx";
+import {UserInfo} from "../user/user.jsx";
+import {Favorite} from "../favorite/favorite.jsx";
+import {Cart} from "../cart/cart.jsx";
+import {Button} from "../../ui/button/button.jsx";
 import "./header.css";
-import DropdownsIcon from "../../assets/icons/dropdowns.svg?react";
-import {DropDownList} from "../ui/drop-down-list.jsx";
-import {dropDownPages, dropDownShop} from "../ui/drop-down-data.jsx";
+import DropdownsIcon from "../../../assets/icons/dropdowns.svg?react";
+import {DropDownList} from "../../ui/drop-down/drop-down-list.jsx";
+import {dropDownPages, dropDownShop} from "../../ui/data/drop-down-data.jsx";
 
 export function Header() {
   // начальное состояние для dropdown

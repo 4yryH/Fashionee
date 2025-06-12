@@ -1,5 +1,5 @@
 import React from "react";
-import CartIcon from "../../assets/icons/cart.svg?react"
+import CartIcon from "../../../assets/icons/cart.svg?react"
 
 export function Cart() {
   // счетчик пока думаю будет реализован позже, при добавлении товара в cart
