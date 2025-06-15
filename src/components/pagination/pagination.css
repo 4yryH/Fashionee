@@ -1,0 +1,74 @@
+.pagination {
+  display: flex;
+  gap: 30px;
+  align-self: center;
+  min-height: 60px;
+}
+
+.pagination__list {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+
+/*Кнопки вперед/назад*/
+.pagination__button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.pagination__button:hover path,
+.pagination__button:focus path {
+  fill: var(--red);
+}
+
+.pagination__icon-next {
+  transform: rotate(180deg);
+}
+/*Кнопки страниц*/
+.pagination__link {
+  font-family: var(--font-family), sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--titles-color);
+  opacity: 0.3;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.pagination__link::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 3px;
+  border-radius: 10px;
+  background-color: var(--titles-color);
+  position: relative;
+  top: 2px;
+  opacity: 0.3;
+}
+
+.pagination__link--current {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.pagination__link--current::after {
+  opacity: 1;
+  width: 22px;
+}
+
+.pagination__link:hover {
+  color: var(--red);
+  font-weight: 600;
+  opacity: 1;
+}
+
+.pagination__link:hover::after {
+  opacity: 1;
+  background-color: var(--red);
+}

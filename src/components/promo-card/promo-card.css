@@ -1,0 +1,47 @@
+.promo-card {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.promo-card__image {
+  width: 75px;
+  height: 85px;
+  background-color: var(--background-images-color);
+}
+
+.promo-card__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.promo-card__title {
+  font-family: var(--font-family), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--body-text-color);
+}
+
+.promo-card__wrapper-price {
+  display: flex;
+}
+
+.promo-card__price {
+  font-family: var(--second-family), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  text-transform: capitalize;
+  color: var(--titles-color);
+}
+
+.promo-card__price--old {
+  font-family: var(--second-family), sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: line-through;
+  color: var(--body-text-color);
+}

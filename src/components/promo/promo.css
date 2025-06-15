@@ -1,0 +1,11 @@
+.promo {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.promo__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

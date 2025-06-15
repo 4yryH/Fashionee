@@ -1,0 +1,109 @@
+.sort-select__value-container {
+  display: flex !important;
+}
+
+/* Контейнер всего селекта */
+/*.sort-select {*/
+/*}*/
+
+/* Обёртка самого поля (контрола) */
+.sort-select__control {
+  border: none;
+  min-width: 262px;
+  box-shadow: none;
+  cursor: pointer;
+  display: flex;
+}
+
+/* При фокусе на контроле */
+/*.sort-select__control--is-focused {*/
+/*  background-color: var(--red);*/
+/*  color: var(--red);*/
+/*  cursor: pointer;*/
+/*}*/
+
+/* Значение (выбранный вариант) */
+.sort-select__single-value {
+  font-family: var(--font-family), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--titles-color);
+  cursor: pointer;
+}
+
+/* hover при наведении на блок с сортировкой*/
+.sort:hover .sort-select__single-value,
+.sort:hover .sort-select__custom-indicator {
+  color: var(--red);
+  fill: var(--red);
+}
+
+/* Переворот иконки при открытии/закрытии списка*/
+.sort-select__custom-indicator {
+  transform: rotate(0deg);
+  transition: transform 0.2s;
+}
+
+.sort-select__control--menu-is-open .sort-select__custom-indicator {
+  transform: rotate(180deg);
+}
+
+/* Дроп-даун со списком опций */
+.sort-select__menu {
+  margin-top: 4px;
+  border: none;
+}
+
+/* Список опций */
+.sort-select__option {
+  font-family: var(--font-family), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--body-text-color);
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+/* Hover над опцией */
+.sort-select__option--is-focused {
+  background: var(--red);
+  color: var(--white);
+}
+
+/*выпадающий список, тень*/
+.sort-select__menu {
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Выбранная опция */
+/*.sort-select__option--is-selected {*/
+/*  background: #f87171;  !* насыщенный красный фон *!*/
+/*  color: #000;*/
+/*}*/
+
+/* Убираем JS-стили react-select на стрелку и меняем её через CSS */
+/*.sort-select__dropdown-indicator {*/
+/*  padding: 0 8px;*/
+/*}*/
+
+/*.sort-select__dropdown-indicator svg {*/
+/*  !* заливка иконки *!*/
+/*  fill: #f87171;*/
+/*  transition: transform .2s;*/
+/*}*/
+
+/*!* Поворот стрелки при открытом меню *!*/
+/*.sort-select__control--is-focused .sort-select__dropdown-indicator svg,*/
+/*.sort-select__control--menu-is-open .sort-select__dropdown-indicator svg {*/
+/*  transform: rotate(180deg);*/
+/*}*/
+
+/* Скрываем JS-инлайновые стили, если нужно */
+/*.sort-select__control,*/
+/*.sort-select__menu,*/
+/*.sort-select__option {*/
+/*  !* отменяем ненужные inline-стили *!*/
+/*  !* например, допишите !important, если CSS-специфичность ниже *!*/
+/*}*/

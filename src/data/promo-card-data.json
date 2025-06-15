@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "imgProps": {
+      "src": "null",
+      "alt": "Retro style handbag"
+    },
+    "titleProps": {
+      "content": "Retro style handbag"
+    },
+    "priceProps": {
+      "price": "35.99"
+    },
+    "priceOldProps":{ "oldPrice": "52.99" }
+  },
+  {
+    "id": 2,
+    "imgProps": {
+      "src": "null",
+      "alt": "Warm casual sweater"
+    },
+    "titleProps": {
+      "content": "Warm casual sweater"
+    },
+    "priceProps": {
+      "price": "35.99"
+    },
+    "priceOldProps":{ "oldPrice": "" }
+  },
+  {
+    "id": 3,
+    "imgProps": {
+      "src": "null",
+      "alt": "Textured turtleneck with zip"
+    },
+    "titleProps": {
+      "content": "Textured turtleneck with zip"
+    },
+    "priceProps": {
+      "price": "35.99"
+    },
+    "priceOldProps":{ "oldPrice": "" }
+  }
+]

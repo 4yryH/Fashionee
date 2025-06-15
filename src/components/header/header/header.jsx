@@ -9,7 +9,7 @@ import {Button} from "../../ui/button/button.jsx";
 import "./header.css";
 import DropdownsIcon from "../../../assets/icons/dropdowns.svg?react";
 import {DropDownList} from "../../ui/drop-down/drop-down-list.jsx";
-import {dropDownPages, dropDownShop} from "../../ui/data/drop-down-data.jsx";
+import {dropDownPages, dropDownShop} from "../../../data/drop-down-data.jsx";
 
 export function Header() {
   // начальное состояние для dropdown

@@ -1,0 +1,38 @@
+.filter__form {
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+}
+
+.filter__search-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.filter__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filter__fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.filter__legend {
+  font-family: var(--second-family), sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--titles-color);
+  border-bottom: 2px solid var(--titles-color);
+  width: 100%;
+  padding-bottom: 14px;
+}
+
+.filter__legend--additional {
+  padding-top: 15px;
+}

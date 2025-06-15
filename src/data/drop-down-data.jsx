@@ -5,3 +5,6 @@ export const dropDownPages = ["Home", "About", "Shop", "Contact", "Blog", "FAQ",
 
 // массив с перечнем выпадающего списка Shop
 export const dropDownShop = ["All", "Men", "Women", "Accessories", "New Arrival",];
+
+// массив для выпадающей сортировки
+export const dropDownSort = ["By relevance", "From cheap to expensive", "From expensive to cheap", "New products", "Discount goods",];

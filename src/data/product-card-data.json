@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "Fashionee - cotton shirt",
+    "price": 110.99,
+    "priceOld": "",
+    "sale": false,
+    "new": false,
+    "image": {
+      "src": null,
+      "alt": "Fashionee - cotton shirt"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Warm casual sweater",
+    "price": 80.99,
+    "priceOld": "",
+    "sale": false,
+    "new": true,
+    "image": {
+      "src": null,
+      "alt": "Warm casual sweater"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Retro style handbag",
+    "price": 45.99,
+    "priceOld": 52.99,
+    "sale": true,
+    "new": false,
+    "image": {
+      "src": null,
+      "alt": "Retro style handbag"
+    }
+  },
+  {
+    "id": 4,
+    "title": "Style Handbag",
+    "price": 180.99,
+    "priceOld": "",
+    "sale": false,
+    "new": false,
+    "image": {
+      "src": null,
+      "alt": "Style Handbag"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Blouse with insert and ruffles",
+    "price": 30.99,
+    "priceOld": "",
+    "sale": false,
+    "new": true,
+    "image": {
+      "src": null,
+      "alt": "Blouse with insert and ruffles"
+    }
+  },
+  {
+    "id": 6,
+    "title": "Long oversized T-shirt",
+    "price": 30.99,
+    "priceOld": 52.99,
+    "sale": true,
+    "new": false,
+    "image": {
+      "src": null,
+      "alt": "Long oversized T-shirt"
+    }
+  },
+  {
+    "id": 7,
+    "title": "Stylish and comfortable cap",
+    "price": 40.99,
+    "priceOld": "",
+    "sale": false,
+    "new": false,
+    "image": {
+      "src": null,
+      "alt": "Stylish and comfortable cap"
+    }
+  },
+  {
+    "id": 8,
+    "title": "Shoulder bag",
+    "price": 210.99,
+    "priceOld": "",
+    "sale": false,
+    "new": true,
+    "image": {
+      "src": null,
+      "alt": "Shoulder bag"
+    }
+  },
+  {
+    "id": 9,
+    "title": "High-heeled shoes",
+    "price": 210.99,
+    "priceOld": 52.99,
+    "sale": true,
+    "new": false,
+    "image": {
+      "src": null,
+      "alt": "High-heeled shoes"
+    }
+  }
+]
