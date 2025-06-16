@@ -2,11 +2,10 @@ import React from "react";
 import {Filter} from "./filter/filter/filter.jsx";
 import {Promo} from "../../components/promo/promo.jsx";
 import {SaleBanner} from "../../components/sale-banner/sale-banner.jsx";
-
 import "./shop.css"
 import {SortSelect} from "../../components/ui/sort-select/sort-select.jsx";
 import products from "../../data/product-card-data.json"
-import {ProductCard} from "../../components/card/product-card.jsx";
+import {ProductCard} from "../../components/product-card/product-card.jsx";
 import {Pagination} from "../../components/pagination/pagination.jsx";
 
 export function ShopPage() {
@@ -34,7 +33,7 @@ export function ShopPage() {
 
               imgProps={{
                 src: item.image.src,
-                alt: item.image.alt,
+                alt: item.title,
               }}
               // бейдж новинка
               badgeNewProps={{

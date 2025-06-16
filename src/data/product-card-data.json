@@ -4,6 +4,7 @@
     "title": "Fashionee - cotton shirt",
     "price": 110.99,
     "priceOld": "",
+    "quantity": 1,
     "sale": false,
     "new": false,
     "image": {
@@ -16,6 +17,7 @@
     "title": "Warm casual sweater",
     "price": 80.99,
     "priceOld": "",
+    "quantity": 1,
     "sale": false,
     "new": true,
     "image": {
@@ -28,6 +30,7 @@
     "title": "Retro style handbag",
     "price": 45.99,
     "priceOld": 52.99,
+    "quantity": 1,
     "sale": true,
     "new": false,
     "image": {
@@ -40,6 +43,7 @@
     "title": "Style Handbag",
     "price": 180.99,
     "priceOld": "",
+    "quantity": 1,
     "sale": false,
     "new": false,
     "image": {
@@ -52,6 +56,7 @@
     "title": "Blouse with insert and ruffles",
     "price": 30.99,
     "priceOld": "",
+    "quantity": 1,
     "sale": false,
     "new": true,
     "image": {
@@ -64,6 +69,7 @@
     "title": "Long oversized T-shirt",
     "price": 30.99,
     "priceOld": 52.99,
+    "quantity": 1,
     "sale": true,
     "new": false,
     "image": {
@@ -76,6 +82,7 @@
     "title": "Stylish and comfortable cap",
     "price": 40.99,
     "priceOld": "",
+    "quantity": 1,
     "sale": false,
     "new": false,
     "image": {
@@ -88,6 +95,7 @@
     "title": "Shoulder bag",
     "price": 210.99,
     "priceOld": "",
+    "quantity": 1,
     "sale": false,
     "new": true,
     "image": {
@@ -99,7 +107,8 @@
     "id": 9,
     "title": "High-heeled shoes",
     "price": 210.99,
-    "priceOld": 52.99,
+    "priceOld": 252.99,
+    "quantity": 1,
     "sale": true,
     "new": false,
     "image": {

@@ -39,11 +39,6 @@ export function ProductCard({
             ? `$${priceProps.price}`
             : "Price"
           }</p>
-          {/*<p*/}
-          {/*  className={priceOldProps.className || "product-card__price product-card__price--old"}>{priceProps.price != null && priceProps.price !== ""*/}
-          {/*  ? `$${priceOldProps.price}`*/}
-          {/*  : ""*/}
-          {/*}</p>*/}
           { priceOldProps.oldPrice != null && priceOldProps.oldPrice !== "" &&
             <p className={priceOldProps.className || "product-card__price product-card__price--old"}>
               {`$${priceOldProps.oldPrice}`}

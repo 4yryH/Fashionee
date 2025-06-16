@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "title": "Fashionee - cotton shirt",
+    "price": 110.99,
+    "priceOld": "",
+    "quantity": 1,
+    "sale": false,
+    "new": false,
+    "image": {
+      "src": null,
+      "alt": "Fashionee - cotton shirt"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Warm casual sweater",
+    "price": 80.99,
+    "priceOld": "",
+    "quantity": 1,
+    "sale": false,
+    "new": true,
+    "image": {
+      "src": null,
+      "alt": "Warm casual sweater"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Retro style handbag",
+    "price": 45.99,
+    "priceOld": 52.99,
+    "quantity": 1,
+    "sale": true,
+    "new": false,
+    "image": {
+      "src": null,
+      "alt": "Retro style handbag"
+    }
+  }
+]

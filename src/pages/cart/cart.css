@@ -1,0 +1,21 @@
+.content-main-cart {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  margin-top: 199px;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-bottom: 10px;
+}
+
+.cart-empty {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-width: 720px;
+}
