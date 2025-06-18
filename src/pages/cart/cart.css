@@ -19,3 +19,9 @@
   gap: 40px;
   min-width: 720px;
 }
+
+.content-footer-cart {
+  margin: 70px auto 0 auto;
+  max-width: 1140px;
+  width: 100%;
+}

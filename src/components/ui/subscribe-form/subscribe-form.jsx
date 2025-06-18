@@ -2,6 +2,7 @@ import React from 'react';
 import SendIcon from "../../../assets/icons/send.svg?react"
 import "./subscribe-form.css"
 
+// элемент отправки почты для подписки
 export function SubscribeForm() {
   return (
     <form className="footer__form">

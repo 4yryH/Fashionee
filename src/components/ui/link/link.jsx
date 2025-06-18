@@ -1,5 +1,6 @@
 import React from 'react';
 
+// внешние ссылки
 export function Link({
                        asListItem = false,
                        linkProps = {},

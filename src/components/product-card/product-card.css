@@ -75,8 +75,12 @@
   cursor: pointer;
 }
 
-.product-card__favorite-icon:hover path,
-.product-card__favorite-icon:focus path {
+.product-card__favorite-icon--active path{
+  fill: var(--red);
+
+}
+
+.product-card__favorite-icon:hover path {
   fill: var(--red);
 }
 

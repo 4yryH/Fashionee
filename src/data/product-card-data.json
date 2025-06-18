@@ -1,37 +1,35 @@
 [
   {
     "id": 1,
-    "title": "Fashionee - cotton shirt",
-    "price": 110.99,
-    "priceOld": "",
-    "quantity": 1,
-    "sale": false,
-    "new": false,
-    "image": {
-      "src": null,
-      "alt": "Fashionee - cotton shirt"
-    }
-  },
-  {
-    "id": 2,
-    "title": "Warm casual sweater",
-    "price": 80.99,
-    "priceOld": "",
+    "title": "Cotton T-shirt",
+    "price": 35.99,
+    "priceOld": null,
     "quantity": 1,
     "sale": false,
     "new": true,
     "image": {
-      "src": null,
-      "alt": "Warm casual sweater"
+      "src": null
+    }
+  },
+  {
+    "id": 2,
+    "title": "Textured turtleneck with zip",
+    "price": 53.99,
+    "priceOld": 52.99,
+    "quantity": 1,
+    "sale": true,
+    "new": false,
+    "image": {
+      "src": null
     }
   },
   {
     "id": 3,
-    "title": "Retro style handbag",
-    "price": 45.99,
-    "priceOld": 52.99,
+    "title": "Spray wrap skirt",
+    "price": 35.99,
+    "priceOld": null,
     "quantity": 1,
-    "sale": true,
+    "sale": false,
     "new": false,
     "image": {
       "src": null,
@@ -40,32 +38,66 @@
   },
   {
     "id": 4,
-    "title": "Style Handbag",
-    "price": 180.99,
-    "priceOld": "",
+    "title": "Fashionee - cotton shirt",
+    "price": 110.99,
+    "priceOld": null,
     "quantity": 1,
     "sale": false,
     "new": false,
     "image": {
-      "src": null,
-      "alt": "Style Handbag"
+      "src": null
     }
   },
   {
     "id": 5,
-    "title": "Blouse with insert and ruffles",
-    "price": 30.99,
-    "priceOld": "",
+    "title": "Warm casual sweater",
+    "price": 80.99,
+    "priceOld": null,
     "quantity": 1,
     "sale": false,
     "new": true,
     "image": {
-      "src": null,
-      "alt": "Blouse with insert and ruffles"
+      "src": null
     }
   },
   {
     "id": 6,
+    "title": "Retro style handbag",
+    "price": 45.99,
+    "priceOld": 52.99,
+    "quantity": 1,
+    "sale": true,
+    "new": false,
+    "image": {
+      "src": null
+    }
+  },
+  {
+    "id": 7,
+    "title": "Style Handbag",
+    "price": 180.99,
+    "priceOld": null,
+    "quantity": 1,
+    "sale": false,
+    "new": false,
+    "image": {
+      "src": null
+    }
+  },
+  {
+    "id": 8,
+    "title": "Blouse with insert and ruffles",
+    "price": 30.99,
+    "priceOld": null,
+    "quantity": 1,
+    "sale": false,
+    "new": true,
+    "image": {
+      "src": null
+    }
+  },
+  {
+    "id": 9,
     "title": "Long oversized T-shirt",
     "price": 30.99,
     "priceOld": 52.99,
@@ -73,47 +105,43 @@
     "sale": true,
     "new": false,
     "image": {
-      "src": null,
-      "alt": "Long oversized T-shirt"
+      "src": null
     }
   },
   {
-    "id": 7,
+    "id": 10,
     "title": "Stylish and comfortable cap",
     "price": 40.99,
-    "priceOld": "",
+    "priceOld": null,
     "quantity": 1,
     "sale": false,
     "new": false,
     "image": {
-      "src": null,
-      "alt": "Stylish and comfortable cap"
+      "src": null
     }
   },
   {
-    "id": 8,
+    "id": 11,
     "title": "Shoulder bag",
     "price": 210.99,
-    "priceOld": "",
+    "priceOld": null,
     "quantity": 1,
     "sale": false,
     "new": true,
     "image": {
-      "src": null,
-      "alt": "Shoulder bag"
+      "src": null
     }
   },
   {
-    "id": 9,
+    "id": 12,
     "title": "High-heeled shoes",
-    "price": 210.99,
-    "priceOld": 252.99,
+    "price": 70.99,
+    "priceOld": 52.99,
     "quantity": 1,
     "sale": true,
     "new": false,
     "image": {
-      "src": null,
-      "alt": "High-heeled shoes"
+      "src": null
     }
   }
 ]

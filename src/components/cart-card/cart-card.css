@@ -4,6 +4,7 @@
   position: relative;
   min-width: 720px;
   min-height: 170px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .cart-item:last-child::after {
@@ -83,8 +84,7 @@
   width: 33%;
 }
 
-.cart-item__quantity-button:hover,
-.cart-item__quantity-button:focus {
+.cart-item__quantity-button:hover {
   color: var(--red);
 }
 
@@ -129,8 +129,7 @@
   text-align: center;
 }
 
-.cart-item__remove:hover,
-.cart-item__remove:focus {
+.cart-item__remove:hover {
   background-color: var(--red);
   opacity: 1;
   border: none;

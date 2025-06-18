@@ -19,8 +19,7 @@
   cursor: pointer;
 }
 
-.pagination__button:hover path,
-.pagination__button:focus path {
+.pagination__button:hover path {
   fill: var(--red);
 }
 

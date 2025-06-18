@@ -72,9 +72,14 @@
   color: var(--white);
 }
 
-/*выпадающий список, тень*/
+/*выпадающий список*/
 .sort-select__menu {
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+  position: absolute;
+  z-index: 2;
+  background-color: var(--white);
+  max-width: 262px;
+  width: 100%;
 }
 
 /* Выбранная опция */

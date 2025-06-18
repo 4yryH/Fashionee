@@ -1,6 +1,7 @@
 import React from 'react';
 import "./sale-banner.css"
 
+// рекламный блок с баннером
 export function SaleBanner() {
   return (
   <aside className="sale-banner">

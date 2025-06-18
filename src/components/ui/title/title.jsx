@@ -1,5 +1,6 @@
 import React from 'react';
 
+// универсальный заголовок с начальным стилем
 export function Title({
                         content,
                         hLevel = "2",

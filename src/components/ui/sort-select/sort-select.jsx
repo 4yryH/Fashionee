@@ -4,7 +4,7 @@ import "./sort-select.css";
 import SortIcon from "../../../assets/icons/sort-icon.svg?react";
 import {sortSelectData as options} from "../../../data/sort-select-data.jsx"
 
-
+// сортировка товаров в shop через выпадающий список
 const DropdownIndicator = props => (
   <components.DropdownIndicator {...props}>
     <SortIcon className="sort-select__custom-indicator"/>

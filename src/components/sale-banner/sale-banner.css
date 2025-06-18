@@ -49,8 +49,7 @@
   text-align: center;
 }
 
-.sale-banner__link:hover,
-.sale-banner__link:focus {
+.sale-banner__link:hover {
   color: var(--red);
 }
 
@@ -66,7 +65,6 @@
   left: -40px;
 }
 
-.sale-banner__link:hover::before,
-.sale-banner__link:focus::before {
+.sale-banner__link:hover::before {
   background-color: var(--red);
 }

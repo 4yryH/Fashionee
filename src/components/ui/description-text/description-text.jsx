@@ -1,5 +1,6 @@
 import React from "react";
 
+// универсальный элемент для текста, изначальные стили заданы
 export function DescriptionText({
                                   content,
                                   className = "",

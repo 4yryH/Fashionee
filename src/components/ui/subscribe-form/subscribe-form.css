@@ -21,7 +21,6 @@
     cursor: pointer;
 }
 
-.footer__button:hover .footer__button-icon path,
-.footer__button:focus .footer__button-icon path {
+.footer__button:hover .footer__button-icon path {
     stroke: var(--red);
 }

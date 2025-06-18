@@ -1,0 +1,171 @@
+/*custom radio*/
+.filter__item {
+  position: relative;
+}
+
+.filter__radio + label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  translate: 0 -50%;
+  width: 5px;
+  height: 5px;
+  background-color: var(--body-text-color);
+}
+
+.filter__radio:checked + label::before {
+  display: none;
+}
+
+.filter__radio:checked + label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(50%);
+  width: 25px;
+  height: 2px;
+  background-color: var(--red);
+}
+
+.filter__radio:checked + label {
+  color: var(--red);
+  padding-left: 56px;
+}
+
+/*custom range*/
+.range-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.range-filter__controls {
+  max-width: 242px;
+  width: 100%;
+  position: relative;
+}
+
+.range-filter__scale {
+  width: 100%;
+  height: 2px;
+  background-color: var(--gray);
+}
+
+.range-filter__bar {
+  width: 56%;
+  margin-left: 20%;
+  height: 2px;
+  background-color: var(--red);
+}
+
+.range-filter__toggle {
+  width: 12px;
+  height: 12px;
+  background-color: var(--red);
+  position: absolute;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.range-filter__input {
+  width: 100px;
+  border: none;
+  text-align: center;
+  font-family: var(--second-family), sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--body-text-color);
+}
+
+/*custom radio*/
+.filter__checkbox + label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--body-text-color);
+  opacity: 0.2;
+}
+
+.filter__checkbox:checked + label::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 10px;
+  height: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 23px;
+  background-image: url("../../../assets/icons/check-mark.svg");
+}
+
+/*deploy*/
+.filter__details {
+  position: relative;
+}
+
+.filter__summary {
+  display: flex;
+  gap: 14px;
+  font-family: var(--font-family), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  text-transform: capitalize;
+  color: var(--red);
+  cursor: pointer;
+}
+
+.filter__button {
+  border: none;
+  width: 100%;
+  min-height: 50px;
+  background-color: var(--titles-color);
+  font-family: var(--font-family), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--white);
+  position: relative;
+  top: -15px;
+}
+
+.filter__button:hover {
+  background-color: var(--red);
+}
+
+.filter__button::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  right: 2px;
+  top: 0;
+  background-color: var(--white);
+}
+
+/*label*/
+.filter__label {
+  font-family: var(--font-family), sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--body-text-color);
+  padding-left: 40px;
+  cursor: pointer;
+}
+
+.filter__label--checkbox {
+  padding-left: 47px;
+}
+
+.filter__label:hover {
+  color: var(--red);
+}
