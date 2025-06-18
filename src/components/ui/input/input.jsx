@@ -14,6 +14,7 @@ export function Input({
     name={inputProps.name || ''}
     type={inputProps.type || 'text'}
     value={inputProps.value}
+    {...inputProps}
   />
 
   const label = <label

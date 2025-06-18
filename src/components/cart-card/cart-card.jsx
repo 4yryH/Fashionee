@@ -8,8 +8,7 @@ export function CartCard({
                            priceProps = {},
                            // для количества товара с других страниц
                            initialQuantity = 1,
-                           onQuantityChange = (qty) => {
-                           },
+                           onQuantityChange,
                            // для удаления карточки из корзины
                            onRemove = () => {
                            }

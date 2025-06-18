@@ -4,6 +4,7 @@ import {Input} from "../ui/input/input.jsx";
 import {Button} from "../ui/button/button.jsx";
 import {Search} from "../search-filter/search.jsx";
 import {PriceSlider} from "../ui/price-slider/price-slider.jsx";
+import DeployIcon from "../../assets/icons/deploy-icon.svg?react"
 import "./filter.css"
 
 // Блок с фильтрами и поиском на странице shop
@@ -21,7 +22,7 @@ export function Filter() {
           <ul className="filter__list">
             <Input asListItem={true}
                    liProps={{className: "filter__item"}}
-                   inputProps={{className: "filter__radio visually-hidden", id: "all", name: "categories", type: "radio", value: "all"}}
+                   inputProps={{className: "filter__radio visually-hidden", id: "all", name: "categories", type: "radio", value: "all", defaultChecked: true}}
                    labelProps={{className: "filter__label", htmlFor: "all", content: "All"}}/>
 
             <Input asListItem={true}
@@ -84,7 +85,7 @@ export function Filter() {
         </fieldset>
         {/*аккордеон показать дополнительные фильтры, пока просто сделан как шаблон*/}
         <details className="filter__details">
-          <summary className="filter__summary"><img alt="" src="../../assets/icons/deploy-icon.svg"/>Deploy</summary>
+          <summary className="filter__summary"><DeployIcon/>Deploy</summary>
           <fieldset className="filter__fieldset">
             <legend className="filter__legend filter__legend--additional">additional filter</legend>
             <div className="filter__decor"></div>

@@ -11,8 +11,13 @@ export function ProductCard({
                               priceOldProps = {},
                               //работа с избранным
                               isFavorite = false,
-                              onToggleFavorite
+                              onToggleFavorite,
+                              // работа с добавлением в корзину
+                              initialQuantity = 0,
+                              onAddToCart,
+                              onQuantityChange,
                             }) {
+  //состояние для избранного
   const [fav, setFav] = useState(isFavorite);
 
   useEffect(() => {
@@ -26,13 +31,48 @@ export function ProductCard({
     onToggleFavorite();
   }
 
+  // состояние для счетчика
+  const [count, setCount] = useState(initialQuantity);
+
+  // синхрон initialQuantity
+  useEffect(() => {
+    setCount(initialQuantity);
+  }, [initialQuantity]);
+
+
+  // клик на buy
+  function handleBuy() {
+    onAddToCart();
+    onQuantityChange(1);
+  }
+
+  // счетчик +1
+  function increase() {
+    setCount((quantity) => {
+      const nextState = quantity + 1;
+      onQuantityChange(nextState);
+      return nextState;
+    });
+  }
+
+  // счетчик -1
+  function decrease() {
+    setCount((quantity) => {
+      const nextState = quantity - 1;
+      onQuantityChange(nextState);
+      return nextState;
+    });
+  }
+
   return (
     <article className={"product-card"}>
       <div className={"product-card__image-wrapper"}>
-        <img alt={imgProps.alt || ""} className={imgProps.className || "product-card__image"}
+        <img alt={imgProps.alt || ""}
+             className={imgProps.className || "product-card__image"}
              height={imgProps.height || "360"}
              width={imgProps.width || "262"}
              src={imgProps.src || null}
+             {...imgProps}
         />
         <span
           className={badgeSaleProps.className || "product-card__badge product-card__badge--sale"}>{badgeSaleProps.content || "Sale"}</span>
@@ -65,6 +105,27 @@ export function ProductCard({
               {`$${priceOldProps.oldPrice}`}
             </p>}
         </div>
+        <div>
+          {count === 0 ? (
+            <button
+              className="product-card__btn-buy"
+              type="button"
+              onClick={handleBuy}
+            >
+              Buy
+            </button>
+          ) : (
+            <div className={"product-card__quantity"}>
+              <button onClick={decrease} disabled={count === 0}
+                      className={"product-card__quantity-button product-card__minus"}>-
+              </button>
+              <span className={"product-card__quantity-input"}>{count}</span>
+              <button onClick={increase}
+                      className={"product-card__quantity-button product-card__minus"}>+
+              </button>
+            </div>
+          )}
+        < /div>
       </div>
     </article>
   )

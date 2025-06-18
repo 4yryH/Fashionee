@@ -8,6 +8,7 @@
   width: 75px;
   height: 85px;
   background-color: var(--background-images-color);
+  object-fit: contain;
 }
 
 .promo-card__wrapper {

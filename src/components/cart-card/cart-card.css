@@ -17,6 +17,7 @@
 
 .cart-item__image {
   background-color: var(--background-images-color);
+  object-fit: contain;
 }
 
 .cart-item__info {

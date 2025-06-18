@@ -8,8 +8,10 @@
     "sale": false,
     "new": true,
     "image": {
-      "src": null
-    }
+      "src": "https://media.istockphoto.com/id/172874489/nl/foto/yellow-blank-t-shirt-front-isolated-on-white.jpg?s=2048x2048&w=is&k=20&c=16SnYie3EToil8n4aRXWui89y1bdFkHH9iWZSSmonqc="
+    },
+    "categories": ["men"],
+    "colors": "yellow"
   },
   {
     "id": 2,
@@ -20,8 +22,10 @@
     "sale": true,
     "new": false,
     "image": {
-      "src": null
-    }
+      "src": "https://media.istockphoto.com/id/2183638309/nl/foto/grey-womens-turtleneck-isolated-on-white-background.jpg?s=2048x2048&w=is&k=20&c=yBUzISsNQoDoUSjXSpLTW_ck0z31swcyzoFw_vkCZY8="
+    },
+    "categories": ["women"],
+    "colors": "black"
   },
   {
     "id": 3,
@@ -32,9 +36,10 @@
     "sale": false,
     "new": false,
     "image": {
-      "src": null,
-      "alt": "Retro style handbag"
-    }
+      "src": "https://media.istockphoto.com/id/837524906/nl/foto/rode-geplooide-twee-delen-rok-geïsoleerde-wit.jpg?s=2048x2048&w=is&k=20&c=jrBVpqs7MWjmfbjnEXMv2Q6NBkzfSsNp4FyVJ51L360="
+    },
+    "categories": ["women"],
+    "colors": "red"
   },
   {
     "id": 4,
@@ -45,8 +50,10 @@
     "sale": false,
     "new": false,
     "image": {
-      "src": null
-    }
+      "src": "https://media.istockphoto.com/id/488160041/nl/foto/mens-shirt.jpg?s=2048x2048&w=is&k=20&c=KerFKMK3iITQIWvOkSMc9x0YQ58WuPl_AqUVfZr7yGY="
+    },
+    "categories": ["men"],
+    "colors": "blue"
   },
   {
     "id": 5,
@@ -57,8 +64,10 @@
     "sale": false,
     "new": true,
     "image": {
-      "src": null
-    }
+      "src": "https://media.istockphoto.com/id/1222731130/nl/foto/bevindende-pullover-sjabloon-3d-rendering-front-view-mannelijke-blanco-sweatshirt-voor-de.jpg?s=2048x2048&w=is&k=20&c=rp8Ts-NZJldOjBiKpbvGEipBevVLfltrdtuCR8GTVao="
+    },
+    "categories": ["men"],
+    "colors": "black"
   },
   {
     "id": 6,
@@ -69,8 +78,10 @@
     "sale": true,
     "new": false,
     "image": {
-      "src": null
-    }
+      "src": "https://media.istockphoto.com/id/1302475972/nl/foto/model-van-leer-bruine-vrouwenzak-die-op-witte-achtergrond-wordt-geïsoleerd.jpg?s=2048x2048&w=is&k=20&c=uzGsY4ZS2IFNr4AOXB-RDn54AwCAAhBn1ROurxz5T_c="
+    },
+    "categories": ["women", "accessories"],
+    "colors": "brown"
   },
   {
     "id": 7,
@@ -81,8 +92,10 @@
     "sale": false,
     "new": false,
     "image": {
-      "src": null
-    }
+      "src": "https://media.istockphoto.com/id/618731934/nl/foto/orange-handbag.jpg?s=2048x2048&w=is&k=20&c=zbIcjAnFyCdJBi7icNrGvVOqZbkTKWGc0sx70JspLTs="
+    },
+    "categories": ["women", "accessories"],
+    "colors": "red"
   },
   {
     "id": 8,
@@ -93,8 +106,10 @@
     "sale": false,
     "new": true,
     "image": {
-      "src": null
-    }
+      "src": "https://media.istockphoto.com/id/487419492/nl/foto/white-shirt-with-short-sleeves-izolirovannom-white-background.jpg?s=2048x2048&w=is&k=20&c=J5bKo_O719qZWBsxl4vuvks7zY1x5I87adPcdmeyBNo="
+    },
+    "categories": ["women"],
+    "colors": "white"
   },
   {
     "id": 9,
@@ -105,8 +120,10 @@
     "sale": true,
     "new": false,
     "image": {
-      "src": null
-    }
+      "src": "https://media.istockphoto.com/id/932345216/nl/foto/oversized-shirt-geïsoleerd.jpg?s=2048x2048&w=is&k=20&c=1G2GELltzffI9ztAyIX34wCN_fAbzpbxk7o4--H500g="
+    },
+    "categories": ["women"],
+    "colors": "white"
   },
   {
     "id": 10,
@@ -117,8 +134,10 @@
     "sale": false,
     "new": false,
     "image": {
-      "src": null
-    }
+      "src": "https://media.istockphoto.com/id/899556798/nl/foto/gele-hoed.jpg?s=2048x2048&w=is&k=20&c=20vB28TXD69_u4CWvRRDjJvqoxhPOL-BofWWgzKTVv8="
+    },
+    "categories": ["women", "men", "accessories"],
+    "colors": "yellow"
   },
   {
     "id": 11,
@@ -129,8 +148,10 @@
     "sale": false,
     "new": true,
     "image": {
-      "src": null
-    }
+      "src": "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    "categories": ["women", "accessories"],
+    "colors": "browne"
   },
   {
     "id": 12,
@@ -141,7 +162,9 @@
     "sale": true,
     "new": false,
     "image": {
-      "src": null
-    }
+      "src": "https://media.istockphoto.com/id/1136114527/nl/foto/luxe-zwarte-hoge-hak-geïsoleerd-op-witte-achtergrond-met-clipping-path-voor-design-en-artwork.jpg?s=2048x2048&w=is&k=20&c=EUpbvKf_ykiEIH_9yq8PWf1fAqePFT80WHFrlLb9TAw="
+    },
+    "categories": ["women"],
+    "colors": "black"
   }
 ]

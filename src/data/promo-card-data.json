@@ -1,44 +1,51 @@
 [
+
   {
     "id": 1,
-    "imgProps": {
-      "src": "null",
-      "alt": "Retro style handbag"
+    "title": "Cotton T-shirt",
+    "price": 35.99,
+    "priceOld": null,
+    "quantity": 1,
+    "sale": false,
+    "new": true,
+    "image": {
+      "src": "https://media.istockphoto.com/id/172874489/nl/foto/yellow-blank-t-shirt-front-isolated-on-white.jpg?s=2048x2048&w=is&k=20&c=16SnYie3EToil8n4aRXWui89y1bdFkHH9iWZSSmonqc="
     },
-    "titleProps": {
-      "content": "Retro style handbag"
-    },
-    "priceProps": {
-      "price": "35.99"
-    },
-    "priceOldProps":{ "oldPrice": "52.99" }
+    "categories": [
+      "men"
+    ],
+    "colors": "yellow"
   },
   {
     "id": 2,
-    "imgProps": {
-      "src": "null",
-      "alt": "Warm casual sweater"
+    "title": "Textured turtleneck with zip",
+    "price": 53.99,
+    "priceOld": 52.99,
+    "quantity": 1,
+    "sale": true,
+    "new": false,
+    "image": {
+      "src": "https://media.istockphoto.com/id/2183638309/nl/foto/grey-womens-turtleneck-isolated-on-white-background.jpg?s=2048x2048&w=is&k=20&c=yBUzISsNQoDoUSjXSpLTW_ck0z31swcyzoFw_vkCZY8="
     },
-    "titleProps": {
-      "content": "Warm casual sweater"
-    },
-    "priceProps": {
-      "price": "35.99"
-    },
-    "priceOldProps":{ "oldPrice": "" }
+    "categories": [
+      "women"
+    ],
+    "colors": "black"
   },
   {
     "id": 3,
-    "imgProps": {
-      "src": "null",
-      "alt": "Textured turtleneck with zip"
+    "title": "Spray wrap skirt",
+    "price": 35.99,
+    "priceOld": null,
+    "quantity": 1,
+    "sale": false,
+    "new": false,
+    "image": {
+      "src": "https://media.istockphoto.com/id/837524906/nl/foto/rode-geplooide-twee-delen-rok-geïsoleerde-wit.jpg?s=2048x2048&w=is&k=20&c=jrBVpqs7MWjmfbjnEXMv2Q6NBkzfSsNp4FyVJ51L360="
     },
-    "titleProps": {
-      "content": "Textured turtleneck with zip"
-    },
-    "priceProps": {
-      "price": "35.99"
-    },
-    "priceOldProps":{ "oldPrice": "" }
+    "categories": [
+      "women"
+    ],
+    "colors": "red"
   }
 ]
