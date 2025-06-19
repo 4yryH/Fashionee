@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import {Filter} from "../../components/filter/filter.jsx";
 import {Promo} from "../../components/promo/promo.jsx";
 import {SaleBanner} from "../../components/sale-banner/sale-banner.jsx";
-import "./shop.css"
 import {SortSelect} from "../../components/ui/sort-select/sort-select.jsx";
 import {ProductCard} from "../../components/product-card/product-card.jsx";
 import {Pagination} from "../../components/pagination/pagination.jsx";
+import "./shop.css"
+
+const PRODUCTS_PER_PAGE = 12
 
 export function ShopPage({
                            products,
@@ -13,8 +15,33 @@ export function ShopPage({
                            onToggleFavorite,
                            cartItems,
                            onAddToCart,
-                           onQuantityChange
+                           onQuantityChange,
                          }) {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // всего страниц c товарами
+  const totalPages = Math.ceil(products.length / PRODUCTS_PER_PAGE);
+
+  // индексы для обрезки массива карточек
+  const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+  const endIndex = startIndex + PRODUCTS_PER_PAGE;
+
+  const currentProducts = products.slice(startIndex, endIndex);
+
+  // выбор страницы при клике
+  const changePage = (page) => () => {
+    setCurrentPage(page);
+  }
+
+  // кнопки пред/след страницы
+  const goPrevPage = () => {
+    setCurrentPage((page) => page - 1)
+  }
+
+  const goNextPage = () => {
+    setCurrentPage((page) => page + 1)
+  }
+
   return (
     <section className="content-main">
       <div className="main__wrapper-left">
@@ -34,7 +61,7 @@ export function ShopPage({
           </div>
         </div>
         <div className="content-main__body">
-          {products.map(item => {
+          {currentProducts.map(item => {
             // сколько уже в корзине
             const inCart = cartItems.find(x => x.id === item.id);
             const qty = inCart ? inCart.quantity : 0;
@@ -69,7 +96,8 @@ export function ShopPage({
             );
           })}
         </div>
-        <Pagination/>
+        <Pagination products={products} currentPage={currentPage} totalPages={totalPages} changePage={changePage}
+                    goPrevPage={goPrevPage} goNextPage={goNextPage}/>
       </div>
     </section>
   );
