@@ -55,6 +55,7 @@
 
 .header__nav-item {
   display: flex;
+  position: relative;
 }
 
 .header__nav-link--current,
@@ -80,13 +81,15 @@
 }
 
 .header__dropdowns-list-pages {
-  left: 360px;
-  top: 70px;
+  left: 50px;
+  top: 20px;
+  min-width: 100px;
 }
 
 .header__dropdowns-list-shop {
-  left: 450px;
-  top: 70px;
+  left: 50px;
+  top: 20px;
+  min-width: 100px;
 }
 
 .header__dropdowns-list {
