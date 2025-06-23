@@ -4,7 +4,7 @@
 }
 
 .filter__radio + label::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 20px;
@@ -19,7 +19,7 @@
 }
 
 .filter__radio:checked + label::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 20px;
@@ -82,7 +82,7 @@
 
 /*custom radio*/
 .filter__checkbox + label::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 20px;
@@ -94,7 +94,7 @@
 }
 
 .filter__checkbox:checked + label::after {
-  content: "";
+  content: '';
   position: absolute;
   display: block;
   width: 10px;
@@ -102,7 +102,7 @@
   top: 50%;
   transform: translateY(-50%);
   left: 23px;
-  background-image: url("../../../assets/icons/check-mark.svg");
+  background-image: url('../../../assets/icons/check-mark.svg');
 }
 
 /*deploy*/
@@ -141,7 +141,7 @@
 }
 
 .filter__button::after {
-  content: "";
+  content: '';
   display: block;
   width: 2px;
   height: 100%;

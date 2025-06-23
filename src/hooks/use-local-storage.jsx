@@ -1,13 +1,11 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from 'react';
 
 export function useLocalStorage(key, initialValue) {
   // При инициализации читаем из localStorage или ставим initialValue
   const [state, setState] = useState(() => {
     try {
       const stored = window.localStorage.getItem(key);
-      return stored !== null
-        ? JSON.parse(stored)
-        : initialValue;
+      return stored !== null ? JSON.parse(stored) : initialValue;
     } catch (e) {
       console.error(`Ошибка чтения ${key} из localStorage`, e);
       return initialValue;

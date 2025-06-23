@@ -2,11 +2,11 @@ import React from 'react';
 
 // универсальная кнопка
 export function Button({
-                         btnProps = {},      // содержащий className, content, onClick, type и т. д.
-                         asListItem = false, // если true — оборачиваем в <li>
-                         liProps = {},       // пропсы для <li>
-                         iconProps = {}      // пропсы для иконки (content, className и т.д.)
-                       }) {
+  btnProps = {}, // содержащий className, content, onClick, type и т. д.
+  asListItem = false, // если true — оборачиваем в <li>
+  liProps = {}, // пропсы для <li>
+  iconProps = {}, // пропсы для иконки (content, className и т.д.)
+}) {
   // деструкт btnProps, просто так надо что бы накидывать клики и т.п.
   const {
     className: btnClass = '',
@@ -16,7 +16,11 @@ export function Button({
     ...otherBtnProps
   } = btnProps;
 
-  const {content: iconContent, className: iconClass = '', ...otherIconProps} = iconProps;
+  const {
+    content: iconContent,
+    className: iconClass = '',
+    ...otherIconProps
+  } = iconProps;
 
   // сама кнопка с возможностью добавить иконку и прокинуть для нее пропсы
   const button = (

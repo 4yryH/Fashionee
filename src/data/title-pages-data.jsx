@@ -1,5 +1,5 @@
 export const titles = {
-  home: "Home",
+  home: 'Home',
   shop: 'Shop',
   all: 'Shop',
   men: 'Shop',

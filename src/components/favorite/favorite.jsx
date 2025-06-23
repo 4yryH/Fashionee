@@ -1,11 +1,11 @@
-import React from "react";
-import FavoriteIcon from "../../assets/icons/favorite.svg?react"
-import "./favorite.css"
+import React from 'react';
+import FavoriteIcon from '../../assets/icons/favorite.svg?react';
+import './favorite.css';
 
 export function Favorite({
-                           count = 0, // прокидывается из App.jsx
-                           onClick
-                         }) {
+  count = 0, // прокидывается из App.jsx
+  onClick,
+}) {
   return (
     <li className="header__user-menu-item">
       <button
@@ -24,5 +24,5 @@ export function Favorite({
         </span>
       </button>
     </li>
-  )
+  );
 }

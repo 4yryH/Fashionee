@@ -1,11 +1,11 @@
 .header__user-menu-link {
-    display: flex;
-    gap: 4px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+  display: flex;
+  gap: 4px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .header__user-menu-link:hover .header__user-menu-icon path {
-    fill: var(--red);
+  fill: var(--red);
 }

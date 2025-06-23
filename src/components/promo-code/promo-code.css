@@ -61,7 +61,7 @@
 }
 
 .promo-code__button::after {
-  content: "";
+  content: '';
   display: block;
   width: 2px;
   height: 100%;
@@ -74,4 +74,3 @@
 .promo-code__button:hover {
   background-color: var(--red);
 }
-

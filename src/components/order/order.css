@@ -1,5 +1,4 @@
 .order-summary {
-
 }
 
 .order-summary__wrapper {
@@ -108,7 +107,7 @@
 }
 
 .order-summary__checkout::after {
-  content: "";
+  content: '';
   display: block;
   width: 2px;
   height: 100%;

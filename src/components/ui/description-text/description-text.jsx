@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
 // универсальный элемент для текста, изначальные стили заданы
 export function DescriptionText({
-                                  content,
-                                  className = "",
-                                  fontSize = "14px",
-                                  fontFamily = "Raleway",
-                                  style = {},
-                                  color = "#444444",
-                                  lineHeight = "1.7"
-                                }) {
+  content,
+  className = '',
+  fontSize = '14px',
+  fontFamily = 'Raleway',
+  style = {},
+  color = '#444444',
+  lineHeight = '1.7',
+}) {
   return (
     <p
       className={className}
@@ -18,7 +18,7 @@ export function DescriptionText({
         fontFamily,
         color,
         lineHeight,
-        ...style
+        ...style,
       }}
     >
       {content}

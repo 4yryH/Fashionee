@@ -11,7 +11,6 @@
   align-items: center;
 }
 
-
 /*Кнопки вперед/назад*/
 .pagination__button {
   border: none;
@@ -40,7 +39,7 @@
 }
 
 .pagination__link::after {
-  content: "";
+  content: '';
   display: block;
   width: 10px;
   height: 3px;

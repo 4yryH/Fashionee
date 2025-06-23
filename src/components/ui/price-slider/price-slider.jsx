@@ -1,17 +1,17 @@
-import React from "react";
-import {Range, getTrackBackground} from "react-range";
-import Tooltip from "rc-tooltip";
-import "rc-tooltip/assets/bootstrap.css";
-import "./price-slider.css";
+import React from 'react';
+import { Range, getTrackBackground } from 'react-range';
+import Tooltip from 'rc-tooltip';
+import 'rc-tooltip/assets/bootstrap.css';
+import './price-slider.css';
 
 // слайдер для фильтра цен, хрупкий однако
 export function PriceSlider({
-                              min = 0,
-                              max = 500,
-                              step = 1,
-                              values = [min, max],
-                              onChange
-                            }) {
+  min = 0,
+  max = 500,
+  step = 1,
+  values = [min, max],
+  onChange,
+}) {
   return (
     <div className="price-slider">
       <Range
@@ -20,9 +20,8 @@ export function PriceSlider({
         min={min}
         max={max}
         onChange={onChange}
-
-        renderTrack={({props, children}) => {
-          const {key, ...restTrackProps} = props;
+        renderTrack={({ props, children }) => {
+          const { key, ...restTrackProps } = props;
           return (
             <div
               {...restTrackProps}
@@ -31,19 +30,18 @@ export function PriceSlider({
                 ...restTrackProps.style,
                 background: getTrackBackground({
                   values,
-                  colors: ["#999", "#ff8e8e", "#999"],
+                  colors: ['#999', '#ff8e8e', '#999'],
                   min,
-                  max
-                })
+                  max,
+                }),
               }}
             >
               {children}
             </div>
-          )
+          );
         }}
-
-        renderThumb={({index, props}) => {
-          const {key, ...restThumbProps} = props;
+        renderThumb={({ index, props }) => {
+          const { key, ...restThumbProps } = props;
           return (
             <Tooltip
               key={index}
@@ -52,12 +50,9 @@ export function PriceSlider({
               visible={true}
               trigger={[]}
             >
-              <div
-                {...restThumbProps}
-                className="price-slider__thumb"
-              />
+              <div {...restThumbProps} className="price-slider__thumb" />
             </Tooltip>
-          )
+          );
         }}
       />
     </div>

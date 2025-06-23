@@ -1,6 +1,6 @@
 import React from 'react';
-import SendIcon from "../../../assets/icons/send.svg?react"
-import "./subscribe-form.css"
+import SendIcon from '../../../assets/icons/send.svg?react';
+import './subscribe-form.css';
 
 // элемент отправки почты для подписки
 export function SubscribeForm() {
@@ -20,5 +20,5 @@ export function SubscribeForm() {
         <SendIcon className="footer__button-icon" width={24} height={24} />
       </button>
     </form>
-  )
+  );
 }

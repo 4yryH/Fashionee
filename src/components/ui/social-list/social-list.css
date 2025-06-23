@@ -8,7 +8,7 @@
 }
 
 .social-item::before {
-  content: "";
+  content: '';
   width: 10px;
   height: 0;
   position: absolute;

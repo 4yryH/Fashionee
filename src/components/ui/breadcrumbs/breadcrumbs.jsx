@@ -1,14 +1,14 @@
 import React from 'react';
-import "./breadcrumbs.css"
+import './breadcrumbs.css';
 
 // хлебные крошки
 export function Breadcrumbs({
-                              items = [],
-                              ulClassName = "breadcrumbs",
-                              liClassName = "breadcrumbs__item",
-                              linkClassName = "breadcrumbs__link",
-                              currentLinkClassName = "breadcrumbs__link--current"
-                            }) {
+  items = [],
+  ulClassName = 'breadcrumbs',
+  liClassName = 'breadcrumbs__item',
+  linkClassName = 'breadcrumbs__link',
+  currentLinkClassName = 'breadcrumbs__link--current',
+}) {
   return (
     <ul className={ulClassName}>
       {items.map((item, idx) => {
@@ -20,23 +20,15 @@ export function Breadcrumbs({
 
         return (
           <li key={item.label + idx} className={liClassName}>
-            {isLast
-              ? (
-                // Текущая страница — просто span
-                <span className={cls}>
-                  {item.label}
-                </span>
-              ) : (
-                // Остальные крошки — кнопки
-                <button
-                  type="button"
-                  className={cls}
-                  onClick={item.onClick}
-                >
-                  {item.label}
-                </button>
-              )
-            }
+            {isLast ? (
+              // Текущая страница — просто span
+              <span className={cls}>{item.label}</span>
+            ) : (
+              // Остальные крошки — кнопки
+              <button type="button" className={cls} onClick={item.onClick}>
+                {item.label}
+              </button>
+            )}
           </li>
         );
       })}

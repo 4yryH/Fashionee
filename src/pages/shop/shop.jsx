@@ -1,22 +1,22 @@
-import React, {useState} from "react";
-import {Filter} from "../../components/filter/filter.jsx";
-import {Promo} from "../../components/promo/promo.jsx";
-import {SaleBanner} from "../../components/sale-banner/sale-banner.jsx";
-import {SortSelect} from "../../components/ui/sort-select/sort-select.jsx";
-import {ProductCard} from "../../components/product-card/product-card.jsx";
-import {Pagination} from "../../components/pagination/pagination.jsx";
-import "./shop.css"
+import React, { useState } from 'react';
+import { Filter } from '../../components/filter/filter.jsx';
+import { Promo } from '../../components/promo/promo.jsx';
+import { SaleBanner } from '../../components/sale-banner/sale-banner.jsx';
+import { SortSelect } from '../../components/ui/sort-select/sort-select.jsx';
+import { ProductCard } from '../../components/product-card/product-card.jsx';
+import { Pagination } from '../../components/pagination/pagination.jsx';
+import './shop.css';
 
-const PRODUCTS_PER_PAGE = 12
+const PRODUCTS_PER_PAGE = 12;
 
 export function ShopPage({
-                           products,
-                           favoriteIds,
-                           onToggleFavorite,
-                           cartItems,
-                           onAddToCart,
-                           onQuantityChange,
-                         }) {
+  products,
+  favoriteIds,
+  onToggleFavorite,
+  cartItems,
+  onAddToCart,
+  onQuantityChange,
+}) {
   const [currentPage, setCurrentPage] = useState(1);
 
   // всего страниц c товарами
@@ -31,73 +31,77 @@ export function ShopPage({
   // выбор страницы при клике
   const changePage = (page) => () => {
     setCurrentPage(page);
-  }
+  };
 
   // кнопки пред/след страницы
   const goPrevPage = () => {
-    setCurrentPage((page) => page - 1)
-  }
+    setCurrentPage((page) => page - 1);
+  };
 
   const goNextPage = () => {
-    setCurrentPage((page) => page + 1)
-  }
+    setCurrentPage((page) => page + 1);
+  };
 
   return (
     <section className="content-main">
       <div className="main__wrapper-left">
-        <Filter/>
-        <Promo/>
-        <SaleBanner/>
+        <Filter />
+        <Promo products={products} />
+        <SaleBanner />
       </div>
       <div className="content-main__products">
         <div className="content-main__header">
           <p className="products-count">
-            There are <span className="products-count__number">
-              {products.length}
-            </span> products in this category
+            There are{' '}
+            <span className="products-count__number">{products.length}</span>{' '}
+            products in this category
           </p>
           <div className="sort">
-            <SortSelect/>
+            <SortSelect />
           </div>
         </div>
         <div className="content-main__body">
-          {currentProducts.map(item => {
+          {currentProducts.map((item) => {
             // сколько уже в корзине
-            const inCart = cartItems.find(x => x.id === item.id);
+            const inCart = cartItems.find((x) => x.id === item.id);
             const qty = inCart ? inCart.quantity : 0;
 
             return (
               <ProductCard
                 key={item.id}
-                imgProps={{src: item.image.src, alt: item.title}}
+                imgProps={{ src: item.image, alt: item.name }}
                 badgeNewProps={{
-                  className: item.new
-                    ? "product-card__badge product-card__badge--new"
-                    : "hidden-badge",
-                  content: "New"
+                  className: item.isNew
+                    ? 'product-card__badge product-card__badge--new'
+                    : 'hidden-badge',
+                  content: 'New',
                 }}
                 badgeSaleProps={{
-                  className: item.sale
-                    ? "product-card__badge product-card__badge--sale"
-                    : "hidden-badge",
-                  content: "Sale"
+                  className: item.isSale
+                    ? 'product-card__badge product-card__badge--sale'
+                    : 'hidden-badge',
+                  content: 'Sale',
                 }}
-                titleProps={{content: item.title}}
-                priceProps={{price: item.price}}
-                priceOldProps={{oldPrice: item.priceOld}}
-
+                titleProps={{ content: item.name }}
+                priceProps={{ price: item.price }}
+                priceOldProps={{ oldPrice: item.oldPrice }}
                 isFavorite={favoriteIds.includes(item.id)}
                 onToggleFavorite={() => onToggleFavorite(item.id)}
-
                 initialQuantity={qty}
                 onAddToCart={() => onAddToCart(item)}
-                onQuantityChange={newQty => onQuantityChange(item.id, newQty)}
+                onQuantityChange={(newQty) => onQuantityChange(item.id, newQty)}
               />
             );
           })}
         </div>
-        <Pagination products={products} currentPage={currentPage} totalPages={totalPages} changePage={changePage}
-                    goPrevPage={goPrevPage} goNextPage={goNextPage}/>
+        <Pagination
+          products={products}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          changePage={changePage}
+          goPrevPage={goPrevPage}
+          goNextPage={goNextPage}
+        />
       </div>
     </section>
   );

@@ -10,7 +10,7 @@
 .cart-item:last-child::after {
   position: absolute;
   bottom: -1px;
-  content: "";
+  content: '';
   width: 100%;
   border-bottom: 2px solid var(--titles-color);
 }

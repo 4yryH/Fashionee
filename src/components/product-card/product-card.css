@@ -13,9 +13,9 @@
   max-width: 262px;
 }
 
-.product-card__image {
-  object-fit: contain;
-}
+/*.product-card__image {*/
+/*  object-fit: contain;*/
+/*}*/
 
 .product-card__badge {
   position: absolute;
@@ -79,9 +79,8 @@
   cursor: pointer;
 }
 
-.product-card__favorite-icon--active path{
+.product-card__favorite-icon--active path {
   fill: var(--red);
-
 }
 
 .product-card__favorite-icon:hover path {

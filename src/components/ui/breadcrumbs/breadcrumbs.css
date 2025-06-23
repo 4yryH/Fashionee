@@ -4,7 +4,7 @@
 }
 
 .breadcrumbs::before {
-  content: "";
+  content: '';
   display: block;
   height: 100%;
   border-left: 2px solid var(--titles-color);

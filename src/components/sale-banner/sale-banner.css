@@ -54,7 +54,7 @@
 }
 
 .sale-banner__link::before {
-  content: "";
+  content: '';
   display: block;
   width: 25px;
   height: 2px;
