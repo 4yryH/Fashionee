@@ -77,7 +77,7 @@ export function ShopPage({
         <div className="content-main__header">
           <p className="products-count">
             There are{' '}
-            <span className="products-count__number">{products.length}</span>{' '}
+            <span className="products-count__number">{filteredProducts.length}</span>{' '}
             products in this category
           </p>
           <div className="sort">
