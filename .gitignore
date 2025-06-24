@@ -31,9 +31,11 @@ coverage/
 # Игнорирование конфигурации для ESLint, Prettier (если у вас глобальные конфиги)
 .eslintcache
 prettier.config.js
+eslint.config.js
 .prettierrc
+.prettierignore
 .eslintignore
-.eslitrc
+.eslintrc
 .linthtmlrc
 .editorconfig
 .stylelintrc
