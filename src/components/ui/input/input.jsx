@@ -3,21 +3,12 @@ import './input.css';
 
 // универсальный инпут
 export function Input({
-  asListItem = false, // если true — оборачиваем в <li>
+  asListItem = false,
   inputProps = {},
   labelProps = {},
   liProps = {},
 }) {
-  const input = (
-    <input
-      className={inputProps.className || ''}
-      id={inputProps.id || ''}
-      name={inputProps.name || ''}
-      type={inputProps.type || 'text'}
-      value={inputProps.value}
-      {...inputProps}
-    />
-  );
+  const input = <input {...inputProps} />;
 
   const label = (
     <label className={labelProps.className} htmlFor={labelProps.htmlFor}>
@@ -31,6 +22,9 @@ export function Input({
       {label}
     </li>
   ) : (
-    { input, label }
+    <>
+      {input}
+      {label}
+    </>
   );
 }

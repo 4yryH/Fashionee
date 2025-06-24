@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Filter } from '../../components/filter/filter.jsx';
 import { Promo } from '../../components/promo/promo.jsx';
 import { SaleBanner } from '../../components/sale-banner/sale-banner.jsx';
 import { SortSelect } from '../../components/ui/sort-select/sort-select.jsx';
 import { ProductCard } from '../../components/product-card/product-card.jsx';
 import { Pagination } from '../../components/pagination/pagination.jsx';
+import { filterProducts } from '../../utils/filterProducts.js';
 import './shop.css';
 
 const PRODUCTS_PER_PAGE = 12;
@@ -17,17 +18,36 @@ export function ShopPage({
   onAddToCart,
   onQuantityChange,
 }) {
+  // для пагинации и обрезки массива товаров
   const [currentPage, setCurrentPage] = useState(1);
 
-  // всего страниц c товарами
-  const totalPages = Math.ceil(products.length / PRODUCTS_PER_PAGE);
+  // для фильтра
+  const [filters, setFilters] = useState({
+    search: '',
+    category: 'all',
+    price: [0, 100],
+    colors: [],
+  });
 
+  const [filteredProducts, setFilteredProducts] = useState(products);
+
+  useEffect(() => {
+    const result = filterProducts(products, filters);
+    setFilteredProducts(result);
+    setCurrentPage(1); // сброс страницы при новом фильтре
+  }, [filters, products]);
+
+  // всего страниц с товарами
+  const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
   // индексы для обрезки массива карточек
   const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
   const endIndex = startIndex + PRODUCTS_PER_PAGE;
-
-  const currentProducts = products.slice(startIndex, endIndex);
-
+  // обрезка массива товаров
+  const currentProducts = filteredProducts.slice(startIndex, endIndex);
+  // мин и макс для слайдера цена
+  const prices = products.map((p) => Number(p.price)).filter((p) => !isNaN(p));
+  const minPrice = Math.min(...prices);
+  const maxPrice = Math.max(...prices);
   // выбор страницы при клике
   const changePage = (page) => () => {
     setCurrentPage(page);
@@ -45,7 +65,11 @@ export function ShopPage({
   return (
     <section className="content-main">
       <div className="main__wrapper-left">
-        <Filter />
+        <Filter
+          filters={filters}
+          onChange={setFilters}
+          priceRange={[minPrice, maxPrice]}
+        />
         <Promo products={products} />
         <SaleBanner />
       </div>

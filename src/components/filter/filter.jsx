@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Title } from '../ui/title/title.jsx';
 import { Input } from '../ui/input/input.jsx';
 import { Button } from '../ui/button/button.jsx';
@@ -7,209 +7,124 @@ import { PriceSlider } from '../ui/price-slider/price-slider.jsx';
 import DeployIcon from '../../assets/icons/deploy-icon.svg?react';
 import './filter.css';
 
-// Блок с фильтрами и поиском на странице shop
-export function Filter() {
-  const [range, setRange] = useState([0, 100]);
+// фильтр товаров для страницы Shop
+export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
+  // деструктор из filters
+  const { category = 'all', colors = [] } = filters;
+
+  // состояние для слайдера с ценой
+  const [range, setRange] = useState(priceRange || [0, 100]);
+
+  // обнов при изменении слайдера
+  useEffect(() => {
+    onChange({ ...filters, price: range });
+  }, [range]);
+
+  // обработчик поиска
+  const handleSearchChange = (e) => {
+    onChange({ ...filters, search: e.target.value });
+  };
+
+  // обработчик радио-кнопок категорий
+  const handleCategoryChange = (e) => {
+    onChange({ ...filters, category: e.target.value });
+  };
+
+  // обработчик чек-боксов цветов
+  const handleColorChange = (e) => {
+    const value = e.target.value;
+    const isChecked = e.target.checked;
+    const updatedColors = isChecked
+      ? [...colors, value]
+      : colors.filter((c) => c !== value);
+
+    onChange({ ...filters, colors: updatedColors });
+  };
+
   return (
     <aside className="filter">
+      {/*Заголовок скрыт, виден только скрин-ридерам*/}
       <Title content="filter" className="visually-hidden" />
+      {/*у формы отмена действия по умолчанию, что бы не перезагружать страницу*/}
+      <form className="filter__form" onSubmit={(e) => e.preventDefault()}>
+        <Search value={filters.search || ''} onChange={handleSearchChange} />
 
-      <form className="filter__form" method="GET">
-        <Search />
+        {/* категории */}
         <fieldset className="filter__fieldset filter__fieldset--categories">
           <legend className="filter__legend">Categories</legend>
           <div className="filter__decor"></div>
           <ul className="filter__list">
-            <Input
-              asListItem={true}
-              liProps={{ className: 'filter__item' }}
-              inputProps={{
-                className: 'filter__radio visually-hidden',
-                id: 'all',
-                name: 'categories',
-                type: 'radio',
-                value: 'all',
-                defaultChecked: true,
-              }}
-              labelProps={{
-                className: 'filter__label',
-                htmlFor: 'all',
-                content: 'All',
-              }}
-            />
-
-            <Input
-              asListItem={true}
-              liProps={{ className: 'filter__item' }}
-              inputProps={{
-                className: 'filter__radio visually-hidden',
-                id: 'men',
-                name: 'categories',
-                type: 'radio',
-                value: 'men',
-              }}
-              labelProps={{
-                className: 'filter__label',
-                htmlFor: 'men',
-                content: 'Men',
-              }}
-            />
-
-            <Input
-              asListItem={true}
-              liProps={{ className: 'filter__item' }}
-              inputProps={{
-                className: 'filter__radio visually-hidden',
-                id: 'women',
-                name: 'categories',
-                type: 'radio',
-                value: 'women',
-              }}
-              labelProps={{
-                className: 'filter__label',
-                htmlFor: 'women',
-                content: 'Women',
-              }}
-            />
-
-            <Input
-              asListItem={true}
-              liProps={{ className: 'filter__item' }}
-              inputProps={{
-                className: 'filter__radio visually-hidden',
-                id: 'accessories',
-                name: 'categories',
-                type: 'radio',
-                value: 'accessories',
-              }}
-              labelProps={{
-                className: 'filter__label',
-                htmlFor: 'accessories',
-                content: 'Accessories',
-              }}
-            />
-
-            <Input
-              asListItem={true}
-              liProps={{ className: 'filter__item' }}
-              inputProps={{
-                className: 'filter__radio visually-hidden',
-                id: 'new-arrivals',
-                name: 'categories',
-                type: 'radio',
-                value: 'new-arrivals',
-              }}
-              labelProps={{
-                className: 'filter__label',
-                htmlFor: 'new-arrivals',
-                content: 'New arrivals',
-              }}
-            />
+            {['all', 'men', 'women', 'accessories', 'new-arrivals'].map(
+              (cat) => (
+                <Input
+                  key={cat}
+                  asListItem={true}
+                  liProps={{ className: 'filter__item' }}
+                  inputProps={{
+                    className: 'filter__radio visually-hidden',
+                    id: cat,
+                    name: 'categories',
+                    type: 'radio',
+                    value: cat,
+                    checked: category === cat,
+                    onChange: handleCategoryChange,
+                  }}
+                  labelProps={{
+                    className: 'filter__label',
+                    htmlFor: cat,
+                    content: cat
+                      .replace('-', ' ')
+                      .replace(/\b\w/g, (l) => l.toUpperCase()),
+                  }}
+                />
+              )
+            )}
           </ul>
         </fieldset>
+
+        {/* слайдер с ценой */}
         <fieldset className="filter__fieldset filter__fieldset--price">
           <legend className="filter__legend">Price</legend>
           <div className="filter__decor">
             <PriceSlider
-              max={100}
-              min={0}
+              min={Math.min(priceRange[0], priceRange[1])}
+              max={Math.max(priceRange[0], priceRange[1])}
               step={0.01}
               values={range}
               onChange={setRange}
             />
           </div>
         </fieldset>
+
+        {/* чек-боксы с цветами */}
         <fieldset className="filter__fieldset filter__fieldset--colors">
           <legend className="filter__legend">Colors</legend>
           <div className="filter__decor"></div>
           <ul className="filter__list">
-            <Input
-              asListItem={true}
-              liProps={{ className: 'filter__item' }}
-              inputProps={{
-                className: 'filter__checkbox visually-hidden',
-                id: 'black',
-                name: 'colors',
-                type: 'checkbox',
-                value: 'black',
-              }}
-              labelProps={{
-                className: 'filter__label filter__label--checkbox',
-                htmlFor: 'black',
-                content: 'Black',
-              }}
-            />
-
-            <Input
-              asListItem={true}
-              liProps={{ className: 'filter__item' }}
-              inputProps={{
-                className: 'filter__checkbox visually-hidden',
-                id: 'blue',
-                name: 'colors',
-                type: 'checkbox',
-                value: 'blue',
-              }}
-              labelProps={{
-                className: 'filter__label filter__label--checkbox',
-                htmlFor: 'blue',
-                content: 'Blue',
-              }}
-            />
-
-            <Input
-              asListItem={true}
-              liProps={{ className: 'filter__item' }}
-              inputProps={{
-                className: 'filter__checkbox visually-hidden',
-                id: 'red',
-                name: 'colors',
-                type: 'checkbox',
-                value: 'red',
-              }}
-              labelProps={{
-                className: 'filter__label filter__label--checkbox',
-                htmlFor: 'red',
-                content: 'Red',
-              }}
-            />
-
-            <Input
-              asListItem={true}
-              liProps={{ className: 'filter__item' }}
-              inputProps={{
-                className: 'filter__checkbox visually-hidden',
-                id: 'yellow',
-                name: 'colors',
-                type: 'checkbox',
-                value: 'yellow',
-              }}
-              labelProps={{
-                className: 'filter__label filter__label--checkbox',
-                htmlFor: 'yellow',
-                content: 'Yellow',
-              }}
-            />
-
-            <Input
-              asListItem={true}
-              liProps={{ className: 'filter__item' }}
-              inputProps={{
-                className: 'filter__checkbox visually-hidden',
-                id: 'green',
-                name: 'colors',
-                type: 'checkbox',
-                value: 'green',
-              }}
-              labelProps={{
-                className: 'filter__label filter__label--checkbox',
-                htmlFor: 'green',
-                content: 'Green',
-              }}
-            />
+            {['black', 'blue', 'red', 'yellow', 'green'].map((color) => (
+              <Input
+                key={color}
+                asListItem={true}
+                liProps={{ className: 'filter__item' }}
+                inputProps={{
+                  className: 'filter__checkbox visually-hidden',
+                  id: color,
+                  name: 'colors',
+                  type: 'checkbox',
+                  value: color,
+                  checked: colors.includes(color),
+                  onChange: handleColorChange,
+                }}
+                labelProps={{
+                  className: 'filter__label filter__label--checkbox',
+                  htmlFor: color,
+                  content: color.charAt(0).toUpperCase() + color.slice(1),
+                }}
+              />
+            ))}
           </ul>
         </fieldset>
-        {/*аккордеон показать дополнительные фильтры, пока просто сделан как шаблон*/}
+        {/*доп фильтр просто шаблон с чек-боксами*/}
         <details className="filter__details">
           <summary className="filter__summary">
             <DeployIcon />
@@ -221,76 +136,29 @@ export function Filter() {
             </legend>
             <div className="filter__decor"></div>
             <ul className="filter__list">
-              <Input
-                asListItem={true}
-                liProps={{ className: 'filter__item' }}
-                inputProps={{
-                  className: 'filter__checkbox visually-hidden',
-                  id: '1',
-                  name: '',
-                  type: 'checkbox',
-                  value: '',
-                }}
-                labelProps={{
-                  className: 'filter__label filter__label--checkbox',
-                  htmlFor: '1',
-                  content: 'Some item',
-                }}
-              />
-
-              <Input
-                asListItem={true}
-                liProps={{ className: 'filter__item' }}
-                inputProps={{
-                  className: 'filter__checkbox visually-hidden',
-                  id: '2',
-                  name: '',
-                  type: 'checkbox',
-                  value: '',
-                }}
-                labelProps={{
-                  className: 'filter__label filter__label--checkbox',
-                  htmlFor: '2',
-                  content: 'Some item',
-                }}
-              />
-
-              <Input
-                asListItem={true}
-                liProps={{ className: 'filter__item' }}
-                inputProps={{
-                  className: 'filter__checkbox visually-hidden',
-                  id: '3',
-                  name: '',
-                  type: 'checkbox',
-                  value: '',
-                }}
-                labelProps={{
-                  className: 'filter__label filter__label--checkbox',
-                  htmlFor: '3',
-                  content: 'Some item',
-                }}
-              />
-
-              <Input
-                asListItem={true}
-                liProps={{ className: 'filter__item' }}
-                inputProps={{
-                  className: 'filter__checkbox visually-hidden',
-                  id: '4',
-                  name: '',
-                  type: 'checkbox',
-                  value: '',
-                }}
-                labelProps={{
-                  className: 'filter__label filter__label--checkbox',
-                  htmlFor: '4',
-                  content: 'Some item',
-                }}
-              />
+              {[1, 2, 3, 4].map((id) => (
+                <Input
+                  key={id}
+                  asListItem={true}
+                  liProps={{ className: 'filter__item' }}
+                  inputProps={{
+                    className: 'filter__checkbox visually-hidden',
+                    id: String(id),
+                    name: '',
+                    type: 'checkbox',
+                    value: '',
+                  }}
+                  labelProps={{
+                    className: 'filter__label filter__label--checkbox',
+                    htmlFor: String(id),
+                    content: 'Some item',
+                  }}
+                />
+              ))}
             </ul>
           </fieldset>
         </details>
+
         <Button
           btnProps={{
             className: 'filter__button',
