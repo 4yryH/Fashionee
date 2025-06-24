@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Filter } from '../../components/filter/filter.jsx';
 import { Promo } from '../../components/promo/promo.jsx';
 import { SaleBanner } from '../../components/sale-banner/sale-banner.jsx';
@@ -6,6 +6,7 @@ import { SortSelect } from '../../components/ui/sort-select/sort-select.jsx';
 import { ProductCard } from '../../components/product-card/product-card.jsx';
 import { Pagination } from '../../components/pagination/pagination.jsx';
 import { filterProducts } from '../../utils/filterProducts.js';
+import { useDebounce } from '../../hooks/useDebounce.jsx';
 import './shop.css';
 
 const PRODUCTS_PER_PAGE = 12;
@@ -29,13 +30,22 @@ export function ShopPage({
     colors: [],
   });
 
+  const debouncedSearch = useDebounce(filters.search, 1000);
+  const debouncedFilters = useMemo(
+    () => ({
+      ...filters,
+      search: debouncedSearch,
+    }),
+    [filters.category, filters.price, filters.colors, debouncedSearch]
+  );
+
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   useEffect(() => {
-    const result = filterProducts(products, filters);
+    const result = filterProducts(products, debouncedFilters);
     setFilteredProducts(result);
     setCurrentPage(1); // сброс страницы при новом фильтре
-  }, [filters, products]);
+  }, [debouncedFilters, products]);
 
   // всего страниц с товарами
   const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
@@ -77,7 +87,9 @@ export function ShopPage({
         <div className="content-main__header">
           <p className="products-count">
             There are{' '}
-            <span className="products-count__number">{filteredProducts.length}</span>{' '}
+            <span className="products-count__number">
+              {filteredProducts.length}
+            </span>{' '}
             products in this category
           </p>
           <div className="sort">
