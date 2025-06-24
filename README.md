@@ -1,13 +1,52 @@
-# React + Vite
+# 🛍️ Fashionee Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Интернет-магазин, реализованный на React, с возможностью фильтрации товаров по категориям, цене, цвету и поиску. 
 
-Currently, two official plugins are available:
+## 🚀 Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Фильтрация по категориям (Men, Women, Accessories и т.д.)
+- Фильтрация по цене (ползунок)
+- Фильтрация по цвету (чекбоксы)
+- Поиск по названию товара
+- Пагинация товаров
+- Добавление товаров в корзину и избранное
+- Адаптивный интерфейс
 
-## Expanding the ESLint configuration
+## Стек
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Fashionee
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- CSS-модули
+- Компонентная архитектура
+
+## Структура проекта
+
+src/
+├── assets/ # Шрифты, иконки
+├── components/ # UI и логические компоненты
+│ ├── filter/ # Панель фильтрации
+│ ├── product-card/ # Карточка товара
+│ ├── search-filter/ # Поле поиска
+│ ├── ui/ # Повторно используемые UI-компоненты (Input, Button, Slider и т.д.)
+├── pages/
+│ └── shop/ # Страница магазина
+├── utils/
+│ └── filterProducts.js # Логика фильтрации
+├── App.jsx
+└── main.jsx
+
+## Установка
+
+```bash
+git clone https://github.com/your-username/fashionee-shop.git
+cd fashionee-shop
+npm install
+```
+## Запуск
+```bash
+npm run dev
+```
+## Сборка
+```bash
+npm run build
+```
