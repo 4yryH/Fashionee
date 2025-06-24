@@ -87,6 +87,7 @@ export function Header({ currentPage, onNavigate, favCount, cartCount }) {
         onClick={() => {
           setShowShop((v) => !v);
           setShowPages(false);
+          onNavigate('shop');
         }}
       >
         Shop
