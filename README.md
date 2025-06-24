@@ -1,6 +1,6 @@
 # Fashionee Shop
 
-Интернет-магазин, реализованный на React, с возможностью фильтрации товаров по категориям, цене, цвету и поиску. 
+Интернет-магазин, реализованный на React 
 
 ## Возможности
 
@@ -22,8 +22,6 @@
 ## Установка
 
 ```bash
-git clone https://github.com/your-username/fashionee-shop.git
-cd fashionee-shop
 npm install
 ```
 ## Запуск
