@@ -22,11 +22,16 @@ export function ShopPage({
   // для пагинации и обрезки массива товаров
   const [currentPage, setCurrentPage] = useState(1);
 
-  // для фильтра
+  // мин и макс для слайдера цена и стартового состояния
+  const prices = products.map((p) => Number(p.price)).filter((p) => !isNaN(p));
+  const minPrice = Math.min(...prices);
+  const maxPrice = Math.max(...prices);
+
+  // для фильтра и его стартовое состояние
   const [filters, setFilters] = useState({
     search: '',
     category: 'all',
-    price: [0, 100],
+    price: [minPrice, maxPrice],
     colors: [],
   });
 
@@ -54,10 +59,6 @@ export function ShopPage({
   const endIndex = startIndex + PRODUCTS_PER_PAGE;
   // обрезка массива товаров
   const currentProducts = filteredProducts.slice(startIndex, endIndex);
-  // мин и макс для слайдера цена
-  const prices = products.map((p) => Number(p.price)).filter((p) => !isNaN(p));
-  const minPrice = Math.min(...prices);
-  const maxPrice = Math.max(...prices);
   // выбор страницы при клике
   const changePage = (page) => () => {
     setCurrentPage(page);
