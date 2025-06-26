@@ -12,13 +12,17 @@ export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
   // деструктор из filters
   const { category = 'all', colors = [] } = filters;
 
-  // состояние для слайдера с ценой
-  const [range, setRange] = useState(priceRange || [0, 100]);
+  // состояния для цены и цвета, эти фильтры будут работать по кнопке apply filter
+  const [localPrice, setLocalPrice] = useState(priceRange || [0, 0]);
+  const [localColors, setLocalColors] = useState(filters.colors || []);
 
-  // обнов при изменении слайдера
+  // если потрогать ренджи, то их состояние не будет сбрасываться при применении фильтра
   useEffect(() => {
-    onChange({ ...filters, price: range });
-  }, [range]);
+    if (filters.price == null && priceRange?.length === 2) {
+      setLocalPrice(priceRange);
+    }
+    setLocalColors(colors);
+  }, [filters.price, priceRange, colors]);
 
   // обработчик поиска
   const handleSearchChange = (e) => {
@@ -35,10 +39,24 @@ export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
     const value = e.target.value;
     const isChecked = e.target.checked;
     const updatedColors = isChecked
-      ? [...colors, value]
-      : colors.filter((c) => c !== value);
+      ? [...localColors, value]
+      : localColors.filter((c) => c !== value);
 
-    onChange({ ...filters, colors: updatedColors });
+    setLocalColors(updatedColors);
+  };
+
+  // обработчик для слайдера с ценой
+  const handlePriceChange = (range) => {
+    setLocalPrice(range);
+  };
+
+  // обработчик кнопки apply filter
+  const handleApply = () => {
+    onChange({
+      ...filters,
+      price: localPrice,
+      colors: localColors,
+    });
   };
 
   return (
@@ -90,8 +108,8 @@ export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
               min={Math.min(priceRange[0], priceRange[1])}
               max={Math.max(priceRange[0], priceRange[1])}
               step={0.01}
-              values={range}
-              onChange={setRange}
+              values={localPrice}
+              onChange={handlePriceChange}
             />
           </div>
         </fieldset>
@@ -112,7 +130,7 @@ export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
                   name: 'colors',
                   type: 'checkbox',
                   value: color,
-                  checked: colors.includes(color),
+                  checked: localColors.includes(color),
                   onChange: handleColorChange,
                 }}
                 labelProps={{
@@ -163,7 +181,8 @@ export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
           btnProps={{
             className: 'filter__button',
             content: 'Apply Filter',
-            type: 'submit',
+            type: 'button',
+            onClick: handleApply,
           }}
         />
       </form>

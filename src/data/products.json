@@ -52,7 +52,7 @@
       "isSale": false,
       "isNew": true,
       "categories": ["Women"],
-      "color": "Brown",
+      "color": "Blue",
       "image": "https://fs-thb03.getcourse.ru/fileservice/file/thumbnail/h/ec9bc0e735f3c75eab9d4d8c4f8630fe.png/s/f1200x/a/534336/sc/400"
     },
     {
@@ -63,7 +63,7 @@
       "isSale": true,
       "isNew": false,
       "categories": ["Women", "Accessories"],
-      "color": "Brown",
+      "color": "Yellow",
       "image": "https://fs-thb03.getcourse.ru/fileservice/file/thumbnail/h/c3d454c3b46f6a62d4d036f928a56705.png/s/f1200x/a/534336/sc/100"
     },
     {
@@ -107,7 +107,7 @@
       "isSale": false,
       "isNew": false,
       "categories": ["Accessories"],
-      "color": "White",
+      "color": "Black",
       "image": "https://fs-thb02.getcourse.ru/fileservice/file/thumbnail/h/aa0d17c1bd58fc6066aa1f602fe8ab59.png/s/f1200x/a/534336/sc/325"
     },
     {
@@ -184,7 +184,7 @@
       "isSale": false,
       "isNew": true,
       "categories": ["Women"],
-      "color": "Brown",
+      "color": "Blue",
       "image": "https://fs-thb03.getcourse.ru/fileservice/file/thumbnail/h/ec9bc0e735f3c75eab9d4d8c4f8630fe.png/s/f1200x/a/534336/sc/400"
     },
     {
@@ -195,7 +195,7 @@
       "isSale": true,
       "isNew": false,
       "categories": ["Women", "Accessories"],
-      "color": "Brown",
+      "color": "Yellow",
       "image": "https://fs-thb03.getcourse.ru/fileservice/file/thumbnail/h/c3d454c3b46f6a62d4d036f928a56705.png/s/f1200x/a/534336/sc/100"
     },
     {
@@ -239,7 +239,7 @@
       "isSale": false,
       "isNew": false,
       "categories": ["Accessories"],
-      "color": "White",
+      "color": "Black",
       "image": "https://fs-thb02.getcourse.ru/fileservice/file/thumbnail/h/aa0d17c1bd58fc6066aa1f602fe8ab59.png/s/f1200x/a/534336/sc/325"
     },
     {
