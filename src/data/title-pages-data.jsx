@@ -18,4 +18,6 @@ export const titles = {
   terms: 'Terms of use',
   support: 'Support',
   shipping: 'Shipping details',
+  login: 'Login',
+  registration: 'Registration',
 };

@@ -2,15 +2,11 @@ import React from 'react';
 
 // массив с перечнем выпадающего списка Pages
 export const dropDownPages = [
-  { label: 'Home', route: 'home' },
-  { label: 'About', route: 'about' },
-  { label: 'Shop', route: 'shop' },
-  { label: 'Contact', route: 'contact' },
-  { label: 'Blog', route: 'blog' },
+  { label: 'About us', route: 'about' },
   { label: 'FAQ', route: 'faq' },
-  { label: 'Cart', route: 'cart' },
-  { label: 'Wishlist', route: 'wishlist' },
   { label: 'My profile', route: 'profile' },
+  { label: 'Login', route: 'login' },
+  { label: 'Registration', route: 'registration' },
 ];
 
 // массив с перечнем выпадающего списка Shop

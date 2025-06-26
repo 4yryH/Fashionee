@@ -14,4 +14,6 @@ export const crumbRoutes = {
   terms: ['home', 'Terms of use'],
   support: ['home', 'Support'],
   shipping: ['home', 'Shipping details'],
+  login: ['home', 'login'],
+  registration: ['home', 'Registration'],
 };

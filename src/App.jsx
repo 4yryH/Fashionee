@@ -144,6 +144,12 @@ function App() {
       {currentPage === 'shipping' && (
         <Title content="Shipping details page in process..." fontSize="48px" />
       )}
+      {currentPage === 'login' && (
+        <Title content="Login page in process..." fontSize="48px" />
+      )}
+      {currentPage === 'registration' && (
+        <Title content="Registration page in process..." fontSize="48px" />
+      )}
 
       <Footer onNavigate={setCurrentPage} />
     </>

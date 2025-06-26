@@ -6,10 +6,10 @@ import { UserInfo } from '../user/user.jsx';
 import { Favorite } from '../favorite/favorite.jsx';
 import { Cart } from '../cart/cart.jsx';
 import { Button } from '../ui/button/button.jsx';
-import './header.css';
-import DropdownsIcon from '../../assets/icons/dropdowns.svg?react';
 import { DropDownList } from '../ui/drop-down-list/drop-down-list.jsx';
 import { dropDownPages, dropDownShop } from '../../data/drop-down-data.jsx';
+import DropdownsIcon from '../../assets/icons/dropdowns.svg?react';
+import './header.css';
 
 // шапка с навигацией, счетчиками избранного и корзиной
 export function Header({ currentPage, onNavigate, favCount, cartCount }) {
