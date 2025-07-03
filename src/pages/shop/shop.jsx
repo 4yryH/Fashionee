@@ -80,6 +80,7 @@ export function ShopPage({
           filters={filters}
           onChange={setFilters}
           priceRange={[minPrice, maxPrice]}
+          products={products}
         />
         <Promo products={products} />
         <SaleBanner />

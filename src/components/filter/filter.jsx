@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Title } from '../ui/title/title.jsx';
 import { Input } from '../ui/input/input.jsx';
 import { Button } from '../ui/button/button.jsx';
@@ -8,7 +8,12 @@ import DeployIcon from '../../assets/icons/deploy-icon.svg?react';
 import './filter.css';
 
 // фильтр товаров для страницы Shop
-export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
+export function Filter({
+  filters = {},
+  onChange = () => {},
+  priceRange,
+  products = [],
+}) {
   // деструктор из filters
   const { category = 'all', colors = [] } = filters;
 
@@ -61,6 +66,27 @@ export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
     });
   };
 
+  // доступные категории из списка продуктов
+  const uniqueCategories = useMemo(() => {
+    const set = new Set();
+    products.forEach((p) => {
+      if (Array.isArray(p.categories)) {
+        p.categories.forEach((c) => set.add(c.toLowerCase()));
+      }
+    });
+
+    return ['all', ...Array.from(set).sort()];
+  }, [products]);
+
+  // доступные цвета из списка продуктов
+  const uniqueColors = useMemo(() => {
+    const set = new Set();
+    products.forEach((p) => {
+      if (p.color) set.add(p.color.toLowerCase());
+    });
+    return Array.from(set).sort();
+  }, [products]);
+
   return (
     <aside className="filter">
       {/*Заголовок скрыт, виден только скрин-ридерам*/}
@@ -74,31 +100,29 @@ export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
           <legend className="filter__legend">Categories</legend>
           <div className="filter__decor"></div>
           <ul className="filter__list">
-            {['all', 'men', 'women', 'accessories', 'new-arrivals'].map(
-              (cat) => (
-                <Input
-                  key={cat}
-                  asListItem={true}
-                  liProps={{ className: 'filter__item' }}
-                  inputProps={{
-                    className: 'filter__radio visually-hidden',
-                    id: cat,
-                    name: 'categories',
-                    type: 'radio',
-                    value: cat,
-                    checked: localCategory === cat,
-                    onChange: handleCategoryChange,
-                  }}
-                  labelProps={{
-                    className: 'filter__label',
-                    htmlFor: cat,
-                    content: cat
-                      .replace('-', ' ')
-                      .replace(/\b\w/g, (l) => l.toUpperCase()),
-                  }}
-                />
-              )
-            )}
+            {uniqueCategories.map((cat) => (
+              <Input
+                key={cat}
+                asListItem={true}
+                liProps={{ className: 'filter__item' }}
+                inputProps={{
+                  className: 'filter__radio visually-hidden',
+                  id: cat,
+                  name: 'categories',
+                  type: 'radio',
+                  value: cat,
+                  checked: localCategory === cat,
+                  onChange: handleCategoryChange,
+                }}
+                labelProps={{
+                  className: 'filter__label',
+                  htmlFor: cat,
+                  content: cat
+                    .replace('-', ' ')
+                    .replace(/\b\w/g, (l) => l.toUpperCase()),
+                }}
+              />
+            ))}
           </ul>
         </fieldset>
 
@@ -121,7 +145,7 @@ export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
           <legend className="filter__legend">Colors</legend>
           <div className="filter__decor"></div>
           <ul className="filter__list">
-            {['black', 'blue', 'red', 'yellow', 'green'].map((color) => (
+            {uniqueColors.map((color) => (
               <Input
                 key={color}
                 asListItem={true}
