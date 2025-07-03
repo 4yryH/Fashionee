@@ -12,7 +12,8 @@ export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
   // деструктор из filters
   const { category = 'all', colors = [] } = filters;
 
-  // состояния для цены и цвета, эти фильтры будут работать по кнопке apply filter
+  // состояния для категории, цены и цвета, эти фильтры будут работать по кнопке apply filter
+  const [localCategory, setLocalCategory] = useState(filters.category || 'all');
   const [localPrice, setLocalPrice] = useState(priceRange || [0, 0]);
   const [localColors, setLocalColors] = useState(filters.colors || []);
 
@@ -31,7 +32,7 @@ export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
 
   // обработчик радио-кнопок категорий
   const handleCategoryChange = (e) => {
-    onChange({ ...filters, category: e.target.value });
+    setLocalCategory(e.target.value);
   };
 
   // обработчик чек-боксов цветов
@@ -54,6 +55,7 @@ export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
   const handleApply = () => {
     onChange({
       ...filters,
+      category: localCategory,
       price: localPrice,
       colors: localColors,
     });
@@ -84,7 +86,7 @@ export function Filter({ filters = {}, onChange = () => {}, priceRange }) {
                     name: 'categories',
                     type: 'radio',
                     value: cat,
-                    checked: category === cat,
+                    checked: localCategory === cat,
                     onChange: handleCategoryChange,
                   }}
                   labelProps={{
