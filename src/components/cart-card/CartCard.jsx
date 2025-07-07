@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './cart-card.css';
+import './CartCard.css';
 
 export function CartCard({
   imgProps = {},

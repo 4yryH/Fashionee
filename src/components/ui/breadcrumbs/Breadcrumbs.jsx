@@ -1,5 +1,5 @@
 import React from 'react';
-import './breadcrumbs.css';
+import './Breadcrumbs.css';
 
 // хлебные крошки
 export function Breadcrumbs({

@@ -1,9 +1,9 @@
 import React from 'react';
 import SearchIcon from '../../assets/icons/search.svg?react';
-import './search.css';
+import './SearchHeader.css';
 
 // поиск в хедере, пока без логики, только иконка
-export function Search() {
+export function SearchHeader() {
   return (
     <li className="header__user-menu-item">
       <button className="header__user-menu-link">

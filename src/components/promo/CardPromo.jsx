@@ -1,6 +1,6 @@
 import React from 'react';
-import { Title } from '../ui/title/title.jsx';
-import './card-promo.css';
+import { Title } from '../ui/title/Title.jsx';
+import './CardPromo.css';
 
 // карточка товара для промо
 export function CardPromo({

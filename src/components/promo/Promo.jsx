@@ -1,7 +1,7 @@
 import React from 'react';
-import { Title } from '../ui/title/title.jsx';
-import { CardPromoList } from './card-promo-list.jsx';
-import './promo.css';
+import { Title } from '../ui/title/Title.jsx';
+import { CardPromoList } from './CardPromoList.jsx';
+import './Promo.css';
 
 // блок с промо-карточками товаров
 export function Promo({ products = [] }) {

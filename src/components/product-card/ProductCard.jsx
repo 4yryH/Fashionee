@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FavoriteIcon from '../../assets/icons/favorite.svg?react';
-import './product-card.css';
+import './ProductCard.css';
 
 export function ProductCard({
   imgProps = {},

@@ -2,7 +2,7 @@ import React from 'react';
 import { Range, getTrackBackground } from 'react-range';
 import Tooltip from 'rc-tooltip';
 import 'rc-tooltip/assets/bootstrap.css';
-import './price-slider.css';
+import './PriceSlider.css';
 
 // слайдер для фильтра цен, хрупкий однако
 export function PriceSlider({

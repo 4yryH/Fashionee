@@ -1,10 +1,10 @@
 import React from 'react';
-import { CartCard } from '../../components/cart-card/cart-card.jsx';
-import './cart.css';
-import { Order } from '../../components/order/order.jsx';
-import { Title } from '../../components/ui/title/title.jsx';
-import { DescriptionText } from '../../components/ui/description-text/description-text.jsx';
-import { PromoCode } from '../../components/promo-code/promo-code.jsx';
+import { CartCard } from '../../components/cart-card/CartCard.jsx';
+import './Cart.css';
+import { Order } from '../../components/order/Order.jsx';
+import { Title } from '../../components/ui/title/Title.jsx';
+import { DescriptionText } from '../../components/ui/description-text/DescriptionText.jsx';
+import { PromoCode } from '../../components/promo-code/PromoCode.jsx';
 
 export function CartPage({
   cartItems, // из App

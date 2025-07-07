@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from '../ui/button/button.jsx';
+import { Button } from '../ui/button/Button.jsx';
 import PaginationIcon from '../../assets/icons/page-next-prev.svg?react';
 
-import './pagination.css';
+import './Pagination.css';
 
 export function Pagination({
   iconProps = {},

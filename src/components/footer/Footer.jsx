@@ -1,17 +1,17 @@
 import React from 'react';
-import { Logo } from '../ui/logo/logo.jsx';
-import { Link } from '../ui/link/link.jsx';
-import { Title } from '../ui/title/title.jsx';
-import { SubscribeForm } from '../ui/subscribe-form/subscribe-form.jsx';
+import { Logo } from '../ui/logo/Logo.jsx';
+import { Link } from '../ui/link/Link.jsx';
+import { Title } from '../ui/title/Title.jsx';
+import { SubscribeForm } from '../ui/subscribe-form/SubscribeForm.jsx';
 import visaIcon from '../../assets/icons/visa.png';
 import masterCardIcon from '../../assets/icons/mastercard.png';
 import paypalIcon from '../../assets/icons/paypal.png';
 import payoneer from '../../assets/icons/payoneer.png';
-import { Button } from '../ui/button/button.jsx';
-import { DescriptionText } from '../ui/description-text/description-text.jsx';
-import './footer.css';
+import { Button } from '../ui/button/Button.jsx';
+import { DescriptionText } from '../ui/description-text/DescriptionText.jsx';
+import './Footer.css';
 import { SocialList } from '../ui/social-list/social-list.jsx';
-import socialData from '../../data/social-data.json';
+import socialData from '../../data/SocialData.json';
 
 // футер для каждой страницы, на кнопки со страницами приходит пропс для onClick,
 // для дальнейшего рендера содержимого в app.jsx

@@ -1,5 +1,5 @@
 import React from 'react';
-import './order.css';
+import './Order.css';
 
 // чек с подсчетами в корзине
 export function Order({

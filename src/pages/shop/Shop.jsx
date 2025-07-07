@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Filter } from '../../components/filter/filter.jsx';
-import { Promo } from '../../components/promo/promo.jsx';
-import { SaleBanner } from '../../components/sale-banner/sale-banner.jsx';
-import { SortSelect } from '../../components/ui/sort-select/sort-select.jsx';
-import { ProductCard } from '../../components/product-card/product-card.jsx';
-import { Pagination } from '../../components/pagination/pagination.jsx';
-import { filterProducts } from '../../utils/filterProducts.js';
+import { Filter } from '../../components/filter/Filter.jsx';
+import { Promo } from '../../components/promo/Promo.jsx';
+import { SaleBanner } from '../../components/sale-banner/SaleBanner.jsx';
+import { SortSelect } from '../../components/ui/sort-select/SortSelect.jsx';
+import { ProductCard } from '../../components/product-card/ProductCard.jsx';
+import { Pagination } from '../../components/pagination/Pagination.jsx';
+import { filterProducts } from '../../utils/FilterProducts.js';
 import { useDebounce } from '../../hooks/useDebounce.jsx';
-import './shop.css';
+import { sortOptions } from '../../data/SortSelectData.jsx';
+import './Shop.css';
 
 const PRODUCTS_PER_PAGE = 12;
 
@@ -52,13 +53,38 @@ export function ShopPage({
     setCurrentPage(1); // сброс страницы при новом фильтре
   }, [debouncedFilters, products]);
 
+  // сортировка
+  const [sortOption, setSortOption] = useState(sortOptions[0].value);
+
+  const sortedProducts = useMemo(() => {
+    // копия, чтобы не мутировать оригинал
+    const productsCopy = [...filteredProducts];
+
+    // сортировка по умолчанию
+    if (sortOption === 'relevance') {
+      return filteredProducts;
+    }
+    // сортировка по цене
+    if (sortOption === 'low' || sortOption === 'high') {
+      return productsCopy.sort((a, b) =>
+        sortOption === 'low' ? a.price - b.price : b.price - a.price
+      );
+    }
+    // к нижнему регистру
+    const stringSorted = productsCopy.sort((a, b) =>
+      a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+    );
+    // A → Z или Z → A просто через разворот
+    return sortOption === 'fromA' ? stringSorted : stringSorted.reverse();
+  }, [filteredProducts, sortOption]);
+
   // всего страниц с товарами
-  const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
+  const totalPages = Math.ceil(sortedProducts.length / PRODUCTS_PER_PAGE);
   // индексы для обрезки массива карточек
   const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
   const endIndex = startIndex + PRODUCTS_PER_PAGE;
   // обрезка массива товаров
-  const currentProducts = filteredProducts.slice(startIndex, endIndex);
+  const currentProducts = sortedProducts.slice(startIndex, endIndex);
   // выбор страницы при клике
   const changePage = (page) => () => {
     setCurrentPage(page);
@@ -90,12 +116,16 @@ export function ShopPage({
           <p className="products-count">
             There are{' '}
             <span className="products-count__number">
-              {filteredProducts.length}
+              {sortedProducts.length}
             </span>{' '}
             products in this category
           </p>
           <div className="sort">
-            <SortSelect />
+            <SortSelect
+              options={sortOptions}
+              value={sortOption}
+              onChange={setSortOption}
+            />
           </div>
         </div>
         <div className="content-main__body">
@@ -133,7 +163,6 @@ export function ShopPage({
           })}
         </div>
         <Pagination
-          products={products}
           currentPage={currentPage}
           totalPages={totalPages}
           changePage={changePage}

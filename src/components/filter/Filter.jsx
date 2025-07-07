@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { Title } from '../ui/title/title.jsx';
-import { Input } from '../ui/input/input.jsx';
-import { Button } from '../ui/button/button.jsx';
-import { Search } from '../search-filter/search.jsx';
-import { PriceSlider } from '../ui/price-slider/price-slider.jsx';
+import { Title } from '../ui/title/Title.jsx';
+import { Input } from '../ui/input/Input.jsx';
+import { Button } from '../ui/button/Button.jsx';
+import { Search } from '../search-filter/Search.jsx';
+import { PriceSlider } from '../ui/price-slider/PriceSlider.jsx';
 import DeployIcon from '../../assets/icons/deploy-icon.svg?react';
-import './filter.css';
+import './Filter.css';
 
 // фильтр товаров для страницы Shop
 export function Filter({

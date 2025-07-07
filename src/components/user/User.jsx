@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import UserIcon from '../../assets/icons/user.svg?react';
-import AuthContext from '../../context/auth-context.jsx';
+import AuthContext from '../../context/AuthContext.jsx';
 
 export function UserInfo() {
   const { isLoggedIn, login, logout } = useContext(AuthContext);

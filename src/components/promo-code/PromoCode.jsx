@@ -1,9 +1,9 @@
 import React from 'react';
-import { Title } from '../ui/title/title.jsx';
-import './promo-code.css';
-import { DescriptionText } from '../ui/description-text/description-text.jsx';
+import { Title } from '../ui/title/Title.jsx';
+import './PromoCode.css';
+import { DescriptionText } from '../ui/description-text/DescriptionText.jsx';
 import ButtonIcon from '../../assets/icons/button-decor-arrow.svg?react';
-import socialData from '../../data/social-data.json';
+import socialData from '../../data/SocialData.json';
 import { SocialList } from '../ui/social-list/social-list.jsx';
 
 // блок с вводом промокода, пока никакой логики в нем нет

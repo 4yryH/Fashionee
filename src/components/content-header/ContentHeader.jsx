@@ -1,7 +1,7 @@
 import React from 'react';
-import { Title } from '../ui/title/title.jsx';
-import { Breadcrumbs } from '../ui/breadcrumbs/breadcrumbs.jsx';
-import './content-header.css';
+import { Title } from '../ui/title/Title.jsx';
+import { Breadcrumbs } from '../ui/breadcrumbs/Breadcrumbs.jsx';
+import './ContentHeader.css';
 
 export function ContentHeader({
   title, // заголовок страницы прилетает из app.jsx

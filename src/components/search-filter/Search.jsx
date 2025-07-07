@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchIcon from '../../assets/icons/search.svg?react';
-import './search.css';
+import './Search.css';
 
 // элемент поиска для блока фильтров
 export function Search({ onChange, value }) {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // для выпадающих списков
-export function DropDownList({
+export function DropdownList({
   items = [],
   ulProps = {},
   onItemClick = () => {},

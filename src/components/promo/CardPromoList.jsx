@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardPromo } from './card-promo.jsx';
+import { CardPromo } from './CardPromo.jsx';
 
 // рендер списка для промо-карточек
 export function CardPromoList({ items = [] }) {

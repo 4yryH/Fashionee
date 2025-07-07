@@ -1,7 +1,7 @@
 import React from 'react';
-import socialData from '../../../data/social-data.json';
-import { Link } from '../link/link.jsx';
-import './social-list.css';
+import socialData from '../../../data/SocialData.json';
+import { Link } from '../link/Link.jsx';
+import './SocialList.css';
 
 // список социал
 export function SocialList() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './sale-banner.css';
+import './SaleBanner.css';
 
 // рекламный блок с баннером
 export function SaleBanner() {

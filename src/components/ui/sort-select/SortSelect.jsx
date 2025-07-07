@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Select, { components } from 'react-select';
-import './sort-select.css';
 import SortIcon from '../../../assets/icons/sort-icon.svg?react';
-import { sortSelectData as options } from '../../../data/sort-select-data.jsx';
+import './SortSelect.css';
 
 // сортировка товаров в shop через выпадающий список
 const DropdownIndicator = (props) => (
@@ -11,16 +10,17 @@ const DropdownIndicator = (props) => (
   </components.DropdownIndicator>
 );
 
-export function SortSelect() {
-  const [selected, setSelected] = useState(options[0]);
+export function SortSelect({ options, value, onChange }) {
+  const selectedOption = options.find((opt) => opt.value === value) || null;
 
   return (
     <Select
-      className="sort-select" // ваш класс для обёртки
+      className="sort-select"
       classNamePrefix="sort-select" // префикс для внутренней BEM-семантики
+      id="sort"
       options={options}
-      value={selected}
-      onChange={setSelected}
+      value={selectedOption}
+      onChange={(option) => onChange(option.value)}
       isSearchable={false} // убрать поиск, если не нужен
       // убираем сепаратор между иконкой и селект, ставим свою иконку
       components={{

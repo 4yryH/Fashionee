@@ -1,6 +1,6 @@
 import React from 'react';
 import FavoriteIcon from '../../assets/icons/favorite.svg?react';
-import './favorite.css';
+import './Favorite.css';
 
 export function Favorite({
   count = 0, // прокидывается из App.jsx

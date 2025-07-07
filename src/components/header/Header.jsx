@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Logo } from '../ui/logo/logo.jsx';
-import { BurgerMenu } from '../burger-menu/burger-menu.jsx';
-import { Search } from '../search-header/search.jsx';
-import { UserInfo } from '../user/user.jsx';
-import { Favorite } from '../favorite/favorite.jsx';
-import { Cart } from '../cart/cart.jsx';
-import { Button } from '../ui/button/button.jsx';
-import { DropDownList } from '../ui/drop-down-list/drop-down-list.jsx';
-import { dropDownPages, dropDownShop } from '../../data/drop-down-data.jsx';
+import { Logo } from '../ui/logo/Logo.jsx';
+import { BurgerMenu } from '../burger-menu/BurgerMenu.jsx';
+import { SearchHeader } from '../search-header/SearchHeader.jsx';
+import { UserInfo } from '../user/User.jsx';
+import { Favorite } from '../favorite/Favorite.jsx';
+import { Cart } from '../cart/Cart.jsx';
+import { Button } from '../ui/button/Button.jsx';
+import { DropdownList } from '../ui/drop-down-list/DropdownList.jsx';
+import { dropDownPages, dropDownShop } from '../../data/DropdownData.jsx';
 import DropdownsIcon from '../../assets/icons/dropdowns.svg?react';
-import './header.css';
+import './Header.css';
 
 // шапка с навигацией, счетчиками избранного и корзиной
 export function Header({ currentPage, onNavigate, favCount, cartCount }) {
@@ -60,7 +60,7 @@ export function Header({ currentPage, onNavigate, favCount, cartCount }) {
         <DropdownsIcon className="header__dropdowns-icon" />
       </button>
       {showPages && (
-        <DropDownList
+        <DropdownList
           items={dropDownPages}
           ulProps={{
             className: 'header__dropdowns-list header__dropdowns-list-pages',
@@ -94,7 +94,7 @@ export function Header({ currentPage, onNavigate, favCount, cartCount }) {
         <DropdownsIcon className="header__dropdowns-icon" />
       </button>
       {showShop && (
-        <DropDownList
+        <DropdownList
           items={dropDownShop}
           ulProps={{
             className: 'header__dropdowns-list header__dropdowns-list-shop',
@@ -152,7 +152,7 @@ export function Header({ currentPage, onNavigate, favCount, cartCount }) {
       </div>
       <div className="header__wrapper-right-side">
         <ul className="header__user-menu-list">
-          <Search />
+          <SearchHeader />
           {/*личный кабинет*/}
           <UserInfo />
           {/*избранное, должно дополниться логикой перехода на страницу с избранным,

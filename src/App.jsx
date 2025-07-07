@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
 import './index.css';
-import { Header } from './components/header/header.jsx';
-import { Footer } from './components/footer/footer.jsx';
-import { ContentHeader } from './components/content-header/content-header.jsx';
-import { ShopPage } from './pages/shop/shop.jsx';
-import { CartPage } from './pages/cart/cart.jsx';
-import { Title } from './components/ui/title/title.jsx';
-import productsData from './data/products.json';
-import { useLocalStorage } from './hooks/use-local-storage.jsx';
-import { titles } from './data/title-pages-data.jsx';
-import { crumbRoutes } from './data/breadcrumbs-data.jsx';
+import { Header } from './components/header/Header.jsx';
+import { Footer } from './components/footer/Footer.jsx';
+import { ContentHeader } from './components/content-header/ContentHeader.jsx';
+import { ShopPage } from './pages/shop/Shop.jsx';
+import { CartPage } from './pages/cart/Cart.jsx';
+import { Title } from './components/ui/title/Title.jsx';
+import productsData from './data/Products.json';
+import { useLocalStorage } from './hooks/useLocalStorage.jsx';
+import { titles } from './data/TitlePagesData.jsx';
+import { crumbRoutes } from './data/BreadcrumbsData.jsx';
 
 const products = productsData.products;
 
