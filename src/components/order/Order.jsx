@@ -4,16 +4,33 @@ import './Order.css';
 // чек с подсчетами в корзине
 export function Order({
   liMetaProps = {},
-  onCheckout = () => {},
   orderPrice = 0,
-  discountValue = 0,
+  discountPercent = 0,
   deliveryCost = 0,
+  cartItems = [],
+  promoCode = '',
 }) {
-  // если нет скидки, то к нам приход string "No", надо его подменять на number для корректного счета total
-  const discountNum = parseFloat(discountValue) || 0;
+  // отдельный подсчет самой суммы скидки для дальнейшего вычета в итоге
+  const discountAmount = (orderPrice * discountPercent) / 100;
 
-  const total = orderPrice - discountNum + deliveryCost; // итоговый чек
+  const total = orderPrice - discountAmount + deliveryCost; // итоговый чек
 
+  const handleCheckout = () => {
+    console.log(
+      'Items:',
+      cartItems,
+      'Promo code:',
+      promoCode,
+      'Discount percent:',
+      discountPercent,
+      'Discount amount:',
+      discountAmount.toFixed(2),
+      'Delivery:',
+      deliveryCost,
+      'Total amount:',
+      total.toFixed(2)
+    );
+  };
   return (
     <aside className={'order-summary'}>
       <div className="order-summary__wrapper">
@@ -30,7 +47,7 @@ export function Order({
               Discount for promo code
             </span>
             <span className={'order-summary__value order-summary__value--text'}>
-              {discountNum > 0 ? `-$${discountNum.toFixed(2)}` : 'No'}
+              {discountPercent > 0 ? `${discountPercent}%` : 'No'}
             </span>
           </li>
           <li className={'order-summary__item'}>
@@ -47,7 +64,7 @@ export function Order({
             </span>
           </li>
         </ul>
-        <button className={'order-summary__checkout'} onClick={onCheckout}>
+        <button className={'order-summary__checkout'} onClick={handleCheckout}>
           {'Checkout'}
         </button>
       </div>

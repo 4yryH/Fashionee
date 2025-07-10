@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Title } from '../ui/title/Title.jsx';
-import './PromoCode.css';
 import { DescriptionText } from '../ui/description-text/DescriptionText.jsx';
 import ButtonIcon from '../../assets/icons/button-decor-arrow.svg?react';
 import socialData from '../../data/SocialData.json';
 import { SocialList } from '../ui/social-list/social-list.jsx';
+import { getDiscountForCode } from '../../utils/promoCodeUtils.js';
+import './PromoCode.css';
 
-// блок с вводом промокода, пока никакой логики в нем нет
-export function PromoCode() {
+// блок с вводом промокода
+export function PromoCode({ onApply }) {
+  const [input, setInput] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const discount = getDiscountForCode(input);
+    onApply(discount === null ? 0 : discount, input.trim());
+    setInput('');
+  };
+
   return (
     <div className="content-footer-cart__wrapper">
       <div className="content-page__footer-text-wrapper">
@@ -22,9 +32,9 @@ export function PromoCode() {
           networks."
         />
       </div>
-      <form action="" className="promo-code__form">
+      <form onSubmit={handleSubmit} className="promo-code__form">
         <label className="visually-hidden" htmlFor="promo-code">
-          Subscribe
+          Promo code
         </label>
         <input
           className="promo-code__input"
@@ -32,8 +42,10 @@ export function PromoCode() {
           name="promo-code"
           placeholder="Enter promo code"
           type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
         />
-        <button className="promo-code__button">
+        <button type="submit" className="promo-code__button">
           <ButtonIcon
             className="promo-code__button-icon"
             height="12"
