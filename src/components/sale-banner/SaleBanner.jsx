@@ -1,23 +1,27 @@
 import React from 'react';
-import './SaleBanner.css';
+import {
+  BannerContainer,
+  Button,
+  Description,
+  Extra,
+  Title,
+} from './SaleBanner.styles.js';
 
 // рекламный блок с баннером
 export function SaleBanner() {
   return (
-    <aside className="sale-banner">
-      <h2 className="sale-banner__title">
-        Season <span className="sale-banner__title-extra">sale&nbsp;</span>
-      </h2>
-      <p className="sale-banner-description">
+    <BannerContainer>
+      <Title>
+        Season <Extra>sale&nbsp;</Extra>
+      </Title>
+      <Description>
         Non aliqua reprehenderit
         <br />
         reprehenderit culpa
         <br />
         laboris nulla
-      </p>
-      <a className="sale-banner__link" href="#">
-        Shop now
-      </a>
-    </aside>
+      </Description>
+      <Button type={'button'}>Shop now</Button>
+    </BannerContainer>
   );
 }

@@ -1,201 +1,131 @@
 import React from 'react';
 import { Logo } from '../ui/logo/Logo.jsx';
-import { Link } from '../ui/link/Link.jsx';
-import { Title } from '../ui/title/Title.jsx';
 import { SubscribeForm } from '../ui/subscribe-form/SubscribeForm.jsx';
-import visaIcon from '../../assets/icons/visa.png';
-import masterCardIcon from '../../assets/icons/mastercard.png';
-import paypalIcon from '../../assets/icons/paypal.png';
-import payoneer from '../../assets/icons/payoneer.png';
-import { Button } from '../ui/button/Button.jsx';
-import { DescriptionText } from '../ui/description-text/DescriptionText.jsx';
-import './Footer.css';
-import { SocialList } from '../ui/social-list/social-list.jsx';
+import { SocialList } from '../ui/social-list/SocialList.jsx';
 import socialData from '../../data/SocialData.json';
+import { PaymentsListData } from '../../data/PaymentsListData.jsx';
+import {
+  FooterRoutesLeft,
+  FooterRoutesRight,
+} from '../../data/FooterMenuData.jsx';
+import {
+  FooterContainer,
+  FooterWrapper,
+  Brand,
+  BrandWrapper,
+  Social,
+  Menu,
+  MenuList,
+  Newsletter,
+  NewsletterWrapper,
+  Bottom,
+  PaymentsList,
+  MenuLink,
+  MenuItem,
+  Description,
+  TitleSocial,
+  Title,
+  TitleHidden,
+  CopyrightContainer,
+  PaymentsContainer,
+  PaymentsItem,
+  PaymentsLink,
+  PaymentsLogo,
+} from './Footer.styles';
 
 // футер для каждой страницы, на кнопки со страницами приходит пропс для onClick,
 // для дальнейшего рендера содержимого в app.jsx
 // Внешние ссылки социал и поддерживаемых способов оплаты открываются в новой вкладке
 export function Footer({ onNavigate }) {
   return (
-    <footer className="footer">
-      <div className="footer__wrapper">
-        <section className="footer__brand">
-          <div className="footer__brand-wrapper">
+    <FooterContainer>
+      <FooterWrapper>
+        <Brand>
+          <BrandWrapper>
             <Logo width={111} height={15} />
-            <DescriptionText
-              content="Cillum eu id enim aliquip aute ullamco anim. Culpa deserunt nostrud excepteur
-      voluptate."
-            />
-          </div>
-          <section className="footer__social">
-            <Title
-              content="Find us here:"
-              fontSize="16px"
-              fontWeight="500"
-              fontFamily="Raleway"
-            />
+            <Description>
+              Cillum eu id enim aliquip aute ullamco anim. Culpa deserunt
+              nostrud excepteur voluptate.
+            </Description>
+          </BrandWrapper>
+
+          <Social>
+            <TitleSocial>Find us here:</TitleSocial>
             <SocialList items={socialData} />
-          </section>
-        </section>
-        <section className="footer__menu">
-          <Title content="About" />
+          </Social>
+        </Brand>
 
-          <ul className="footer__menu-list">
-            <Button
-              asListItem={true}
-              liProps={{ className: 'footer__menu-item' }}
-              btnProps={{
-                className: 'footer__menu-link',
-                content: 'About us',
-                onClick: () => onNavigate('about'),
-              }}
-            />
+        <Menu>
+          <Title>About</Title>
 
-            <Button
-              asListItem={true}
-              liProps={{ className: 'footer__menu-item' }}
-              btnProps={{
-                className: 'footer__menu-link',
-                content: 'Collections',
-                onClick: () => onNavigate('collection'),
-              }}
-            />
+          <MenuList>
+            {FooterRoutesLeft.map((item) => {
+              return (
+                <MenuItem key={item.route}>
+                  <MenuLink onClick={() => onNavigate(item.route)}>
+                    {item.label}
+                  </MenuLink>
+                </MenuItem>
+              );
+            })}
+          </MenuList>
+        </Menu>
 
-            <Button
-              asListItem={true}
-              liProps={{ className: 'footer__menu-item' }}
-              btnProps={{
-                className: 'footer__menu-link',
-                content: 'Shop',
-                onClick: () => onNavigate('shop'),
-              }}
-            />
+        <Menu>
+          <Title>Useful Links</Title>
 
-            <Button
-              asListItem={true}
-              liProps={{ className: 'footer__menu-item' }}
-              btnProps={{
-                className: 'footer__menu-link',
-                content: 'Blog',
-                onClick: () => onNavigate('blog'),
-              }}
-            />
+          <MenuList>
+            {FooterRoutesRight.map((item) => {
+              return (
+                <MenuItem key={item.route}>
+                  <MenuLink onClick={() => onNavigate(item.route)}>
+                    {item.label}
+                  </MenuLink>
+                </MenuItem>
+              );
+            })}
+          </MenuList>
+        </Menu>
 
-            <Button
-              asListItem={true}
-              liProps={{ className: 'footer__menu-item' }}
-              btnProps={{
-                className: 'footer__menu-link',
-                content: 'Contact us',
-                onClick: () => onNavigate('contact'),
-              }}
-            />
-          </ul>
-        </section>
-        <section className="footer__menu">
-          <Title content="Useful Links" />
+        <Newsletter>
+          <Title>Newsletter</Title>
 
-          <ul className="footer__menu-list">
-            <Button
-              asListItem={true}
-              liProps={{ className: 'footer__menu-item' }}
-              btnProps={{
-                className: 'footer__menu-link',
-                content: 'Privacy Policy',
-                onClick: () => onNavigate('privacy'),
-              }}
-            />
-
-            <Button
-              asListItem={true}
-              liProps={{ className: 'footer__menu-item' }}
-              btnProps={{
-                className: 'footer__menu-link',
-                content: 'Terms of use',
-                onClick: () => onNavigate('terms'),
-              }}
-            />
-
-            <Button
-              asListItem={true}
-              liProps={{ className: 'footer__menu-item' }}
-              btnProps={{
-                className: 'footer__menu-link',
-                content: 'Support',
-                onClick: () => onNavigate('support'),
-              }}
-            />
-
-            <Button
-              asListItem={true}
-              liProps={{ className: 'footer__menu-item' }}
-              btnProps={{
-                className: 'footer__menu-link',
-                content: 'Shipping details',
-                onClick: () => onNavigate('shipping'),
-              }}
-            />
-
-            <Button
-              asListItem={true}
-              liProps={{ className: 'footer__menu-item' }}
-              btnProps={{
-                className: 'footer__menu-link',
-                content: 'FAQs',
-                onClick: () => onNavigate('faq'),
-              }}
-            />
-          </ul>
-        </section>
-        <section className="footer__newsletter">
-          <Title content="Newsletter" />
-          <div className="footer__newsletter-wrapper">
-            <DescriptionText
-              content="Subscribe to be the first to hear about deals, offers and upcoming
-          collections."
-            />
+          <NewsletterWrapper>
+            <Description>
+              Subscribe to be the first to hear about deals, offers and upcoming
+              collections.
+            </Description>
 
             <SubscribeForm />
-          </div>
-        </section>
-      </div>
-      <section className="footer__bottom">
-        <div className="footer__copyright">
-          <Title content="Copyright" className="visually-hidden" />
-          <DescriptionText content="© All right reserved. Fashionee 2020" />
-        </div>
-        <div className="footer__payments">
-          <Title content="Payments" className="visually-hidden" />
-          <DescriptionText content="Payment methods:" />
+          </NewsletterWrapper>
+        </Newsletter>
+      </FooterWrapper>
 
-          <ul className="footer__payments-list">
-            <Link
-              asListItem={true}
-              linkProps={{ href: '#', target: '_blank' }}
-              imgProps={{ width: 33, height: 20, src: visaIcon }}
-            />
+      <Bottom>
+        <CopyrightContainer>
+          <TitleHidden>Copyright</TitleHidden>
 
-            <Link
-              asListItem={true}
-              linkProps={{ href: '#', target: '_blank' }}
-              imgProps={{ width: 33, height: 20, src: masterCardIcon }}
-            />
+          <Description>© All right reserved. Fashionee 2020</Description>
+        </CopyrightContainer>
 
-            <Link
-              asListItem={true}
-              linkProps={{ href: '#', target: '_blank' }}
-              imgProps={{ width: 33, height: 20, src: paypalIcon }}
-            />
+        <PaymentsContainer>
+          <TitleHidden>Payments</TitleHidden>
 
-            <Link
-              asListItem={true}
-              linkProps={{ href: '#', target: '_blank' }}
-              imgProps={{ width: 33, height: 20, src: payoneer }}
-            />
-          </ul>
-        </div>
-      </section>
-    </footer>
+          <Description>Payment methods:</Description>
+
+          <PaymentsList>
+            {PaymentsListData.map((item) => {
+              return (
+                <PaymentsItem key={item.title}>
+                  <PaymentsLink href={item.src} target="_blank">
+                    <PaymentsLogo src={item.logo} alt={item.title} />
+                  </PaymentsLink>
+                </PaymentsItem>
+              );
+            })}
+          </PaymentsList>
+        </PaymentsContainer>
+      </Bottom>
+    </FooterContainer>
   );
 }

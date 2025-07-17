@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { CartCard } from '../../components/cart-card/CartCard.jsx';
+import { CartItem } from '../../components/cart-item/CartItem.jsx';
 import { Order } from '../../components/order/Order.jsx';
-import { Title } from '../../components/ui/title/Title.jsx';
-import { DescriptionText } from '../../components/ui/description-text/DescriptionText.jsx';
 import { PromoCode } from '../../components/promo-code/PromoCode.jsx';
-import './Cart.css';
+import {
+  ContentMain,
+  Cart,
+  CartEmpty,
+  ContentFooterCart,
+  TitleCartEmpty,
+  DescriptionCartEmpty,
+} from './Cart.styles.js';
 
 export function CartPage({
   cartItems, // из App
@@ -25,33 +30,33 @@ export function CartPage({
 
   return (
     <>
-      <section className="content-main-cart">
+      <ContentMain>
         {/*Корзина*/}
-        <div className="cart">
+        <Cart>
           {/*Условие для пустой корзины*/}
           {cartItems.length > 0 ? (
             cartItems.map((item) => (
-              <CartCard
+              <CartItem
                 key={item.id}
+                item={item}
                 imgProps={{ src: item.image, alt: item.name }}
                 titleProps={{ title: item.name }}
                 priceProps={{ price: item.price }}
                 priceOldProps={{ oldPrice: item.oldPrice }}
                 initialQuantity={item.quantity} // стартовое кол-во из данных
-                onQuantityChange={(qty) => onQuantityChange(item.id, qty)}
-                onRemove={() => onRemoveItem(item.id)}
+                onQuantityChange={onQuantityChange}
+                onRemove={onRemoveItem}
               />
             ))
           ) : (
-            <div className="cart-empty">
-              <Title content="Your shopping cart is empty" fontSize="40px" />
-              <DescriptionText
-                content="You can return to the list of products and add them to the cart."
-                fontSize="20px"
-              />
-            </div>
+            <CartEmpty>
+              <TitleCartEmpty>Your shopping cart is empty</TitleCartEmpty>
+              <DescriptionCartEmpty>
+                You can return to the list of products and add them to the cart.
+              </DescriptionCartEmpty>
+            </CartEmpty>
           )}
-        </div>
+        </Cart>
         {/*Чек*/}
         <Order
           orderPrice={orderPrice}
@@ -60,15 +65,15 @@ export function CartPage({
           cartItems={cartItems}
           promoCode={promoCode}
         />
-      </section>
-      <section className="content-footer-cart">
+      </ContentMain>
+      <ContentFooterCart>
         <PromoCode
           onApply={(DiscountPercent, code) => {
             setDiscountPercent(DiscountPercent);
             setPromoCode(code);
           }}
         />
-      </section>
+      </ContentFooterCart>
     </>
   );
 }

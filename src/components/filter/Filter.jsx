@@ -1,11 +1,27 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { Title } from '../ui/title/Title.jsx';
-import { Input } from '../ui/input/Input.jsx';
-import { Button } from '../ui/button/Button.jsx';
-import { Search } from '../search-filter/Search.jsx';
-import { PriceSlider } from '../ui/price-slider/PriceSlider.jsx';
-import DeployIcon from '../../assets/icons/deploy-icon.svg?react';
-import './Filter.css';
+import { SearchFilter } from '../search-filter/SearchFilter.jsx';
+import { PriceSlider } from '../price-slider/PriceSlider.jsx';
+import {
+  FilterDecorWrapper,
+  FilterDetails,
+  FilterSummary,
+} from '../favorite-header/FavoriteHeader.styles.js';
+import {
+  FilterContainer,
+  FilterForm,
+  FilterFieldset,
+  FilterLegend,
+  AdditionalLegend,
+  FilterList,
+  StyledDeployIcon,
+  ButtonApply,
+  TitleHidden,
+  FilterItem,
+  InputRadio,
+  InputCheckbox,
+  LabelRadio,
+  LabelCheckbox,
+} from './Filter.styles';
 
 // фильтр товаров для страницы Shop
 export function Filter({
@@ -15,7 +31,7 @@ export function Filter({
   products = [],
 }) {
   // деструктор из filters
-  const { category = 'all', colors = [] } = filters;
+  const { colors = [] } = filters;
 
   // состояния для категории, цены и цвета, эти фильтры будут работать по кнопке apply filter
   const [localCategory, setLocalCategory] = useState(filters.category || 'all');
@@ -88,48 +104,46 @@ export function Filter({
   }, [products]);
 
   return (
-    <aside className="filter">
-      {/*Заголовок скрыт, виден только скрин-ридерам*/}
-      <Title content="filter" className="visually-hidden" />
+    <FilterContainer>
+      <TitleHidden>filter</TitleHidden>
       {/*у формы отмена действия по умолчанию, что бы не перезагружать страницу*/}
-      <form className="filter__form" onSubmit={(e) => e.preventDefault()}>
-        <Search value={filters.search || ''} onChange={handleSearchChange} />
+      <FilterForm onSubmit={(e) => e.preventDefault()}>
+        <SearchFilter
+          value={filters.search || ''}
+          onChange={handleSearchChange}
+        />
 
         {/* категории */}
-        <fieldset className="filter__fieldset filter__fieldset--categories">
-          <legend className="filter__legend">Categories</legend>
-          <div className="filter__decor"></div>
-          <ul className="filter__list">
+        <FilterFieldset>
+          <FilterLegend>Categories</FilterLegend>
+          <FilterDecorWrapper></FilterDecorWrapper>
+
+          <FilterList>
             {uniqueCategories.map((cat) => (
-              <Input
-                key={cat}
-                asListItem={true}
-                liProps={{ className: 'filter__item' }}
-                inputProps={{
-                  className: 'filter__radio visually-hidden',
-                  id: cat,
-                  name: 'categories',
-                  type: 'radio',
-                  value: cat,
-                  checked: localCategory === cat,
-                  onChange: handleCategoryChange,
-                }}
-                labelProps={{
-                  className: 'filter__label',
-                  htmlFor: cat,
-                  content: cat
+              <FilterItem key={cat}>
+                <InputRadio
+                  id={cat}
+                  type={'radio'}
+                  value={cat}
+                  name={'categories'}
+                  checked={localCategory === cat}
+                  onChange={handleCategoryChange}
+                />
+
+                <LabelRadio htmlFor={cat}>
+                  {cat
                     .replace('-', ' ')
-                    .replace(/\b\w/g, (l) => l.toUpperCase()),
-                }}
-              />
+                    .replace(/\b\w/g, (l) => l.toUpperCase())}
+                </LabelRadio>
+              </FilterItem>
             ))}
-          </ul>
-        </fieldset>
+          </FilterList>
+        </FilterFieldset>
 
         {/* слайдер с ценой */}
-        <fieldset className="filter__fieldset filter__fieldset--price">
-          <legend className="filter__legend">Price</legend>
-          <div className="filter__decor">
+        <FilterFieldset>
+          <FilterLegend>Price</FilterLegend>
+          <FilterDecorWrapper>
             <PriceSlider
               min={Math.min(priceRange[0], priceRange[1])}
               max={Math.max(priceRange[0], priceRange[1])}
@@ -137,81 +151,65 @@ export function Filter({
               values={localPrice}
               onChange={handlePriceChange}
             />
-          </div>
-        </fieldset>
+          </FilterDecorWrapper>
+        </FilterFieldset>
 
         {/* чек-боксы с цветами */}
-        <fieldset className="filter__fieldset filter__fieldset--colors">
-          <legend className="filter__legend">Colors</legend>
-          <div className="filter__decor"></div>
-          <ul className="filter__list">
-            {uniqueColors.map((color) => (
-              <Input
-                key={color}
-                asListItem={true}
-                liProps={{ className: 'filter__item' }}
-                inputProps={{
-                  className: 'filter__checkbox visually-hidden',
-                  id: color,
-                  name: 'colors',
-                  type: 'checkbox',
-                  value: color,
-                  checked: localColors.includes(color),
-                  onChange: handleColorChange,
-                }}
-                labelProps={{
-                  className: 'filter__label filter__label--checkbox',
-                  htmlFor: color,
-                  content: color.charAt(0).toUpperCase() + color.slice(1),
-                }}
-              />
-            ))}
-          </ul>
-        </fieldset>
-        {/*доп фильтр просто шаблон с чек-боксами*/}
-        <details className="filter__details">
-          <summary className="filter__summary">
-            <DeployIcon />
-            Deploy
-          </summary>
-          <fieldset className="filter__fieldset">
-            <legend className="filter__legend filter__legend--additional">
-              additional filter
-            </legend>
-            <div className="filter__decor"></div>
-            <ul className="filter__list">
-              {[1, 2, 3, 4].map((id) => (
-                <Input
-                  key={id}
-                  asListItem={true}
-                  liProps={{ className: 'filter__item' }}
-                  inputProps={{
-                    className: 'filter__checkbox visually-hidden',
-                    id: String(id),
-                    name: '',
-                    type: 'checkbox',
-                    value: '',
-                  }}
-                  labelProps={{
-                    className: 'filter__label filter__label--checkbox',
-                    htmlFor: String(id),
-                    content: 'Some item',
-                  }}
-                />
-              ))}
-            </ul>
-          </fieldset>
-        </details>
+        <FilterFieldset>
+          <FilterLegend>Colors</FilterLegend>
+          <FilterDecorWrapper></FilterDecorWrapper>
 
-        <Button
-          btnProps={{
-            className: 'filter__button',
-            content: 'Apply Filter',
-            type: 'button',
-            onClick: handleApply,
-          }}
-        />
-      </form>
-    </aside>
+          <FilterList>
+            {uniqueColors.map((color) => (
+              <FilterItem key={color}>
+                <InputCheckbox
+                  id={color}
+                  name={'colors'}
+                  type={'checkbox'}
+                  value={color}
+                  checked={localColors.includes(color)}
+                  onChange={handleColorChange}
+                />
+
+                <LabelCheckbox htmlFor={color}>
+                  {color.charAt(0).toUpperCase() + color.slice(1)}
+                </LabelCheckbox>
+              </FilterItem>
+            ))}
+          </FilterList>
+        </FilterFieldset>
+        {/*доп фильтр просто шаблон с чек-боксами*/}
+        <FilterDetails>
+          <FilterSummary>
+            <StyledDeployIcon />
+            Deploy
+          </FilterSummary>
+
+          <FilterFieldset>
+            <AdditionalLegend>Additional filter</AdditionalLegend>
+            <FilterDecorWrapper></FilterDecorWrapper>
+
+            <FilterList>
+              {[1, 2, 3, 4].map((id) => (
+                <FilterItem key={id}>
+                  <InputCheckbox
+                    id={id}
+                    name={'additional'}
+                    type={'checkbox'}
+                    value={id}
+                  />
+
+                  <LabelCheckbox htmlFor={id}>{id}</LabelCheckbox>
+                </FilterItem>
+              ))}
+            </FilterList>
+          </FilterFieldset>
+        </FilterDetails>
+
+        <ButtonApply type="button" onClick={handleApply}>
+          Apply Filter
+        </ButtonApply>
+      </FilterForm>
+    </FilterContainer>
   );
 }

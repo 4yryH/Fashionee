@@ -9,24 +9,13 @@ export function CardPromoList({ items = [] }) {
   const itemsCurrent = items.slice(startIndex, endIndex);
 
   return itemsCurrent.map((item) => (
-    <li key={item.id} className="promo__item">
+    <li key={item.id}>
       <CardPromo
-        articleProps={item.articleProps}
-        imgProps={{
-          src: item.image,
-          alt: item.name,
-        }}
-        divWrapperProps={item.divWrapperProps}
-        titleProps={{
-          content: item.name,
-        }}
-        divWrapperPriceProps={item.divWrapperPriceProps}
-        priceProps={{
-          price: item.price,
-        }}
-        priceOldProps={{
-          oldPrice: item.oldPrice,
-        }}
+        srcImage={item.image}
+        altImage={item.name}
+        title={item.name}
+        priceCurrent={item.price}
+        priceOld={item.oldPrice}
       />
     </li>
   ));

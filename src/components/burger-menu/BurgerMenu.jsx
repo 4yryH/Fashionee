@@ -1,15 +1,11 @@
 import React from 'react';
-import './BurgerMenu.css';
+import { BurgerCheckbox, BurgerLabel } from './BurgerMenu.styles.js';
 
-export function BurgerMenu() {
+export function BurgerMenu(id = 'burger-toggle', checked, onChange) {
   return (
-    <div className="header__burger-menu-wrapper">
-      <input
-        type="checkbox"
-        className="header__burger-checkbox"
-        id="burger-checkbox"
-      />
-      <label htmlFor="burger-checkbox" className="header__burger-label"></label>
-    </div>
+    <>
+      <BurgerCheckbox id={id} checked={checked} onChange={onChange} />
+      <BurgerLabel htmlFor={id} />
+    </>
   );
 }

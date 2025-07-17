@@ -1,6 +1,4 @@
 import React from 'react';
-import './App.css';
-import './index.css';
 import { Header } from './components/header/Header.jsx';
 import { Footer } from './components/footer/Footer.jsx';
 import { ContentHeader } from './components/content-header/ContentHeader.jsx';
@@ -31,7 +29,7 @@ function App() {
   };
 
   // счетчик корзины в шапке
-  const [cartItems, setCartItems] = useLocalStorage('cart');
+  const [cartItems, setCartItems] = useLocalStorage('cart', []);
 
   // общее число товаров для иконки в шапке
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from '../ui/button/Button.jsx';
-import PaginationIcon from '../../assets/icons/page-next-prev.svg?react';
-
-import './Pagination.css';
+import {
+  PaginationContainer,
+  PaginationList,
+  PaginationButton,
+  PrevIcon,
+  NextIcon,
+  PaginationLink,
+} from './Pagination.styles.js';
 
 export function Pagination({
-  iconProps = {},
   totalPages,
   changePage,
   currentPage,
@@ -26,54 +29,27 @@ export function Pagination({
   }, [totalPages]);
 
   return (
-    <nav className="pagination">
-      <Button
-        btnProps={{
-          className: 'pagination__button pagination__button--prev',
-          onClick: goPrevPage,
-          disabled: currentPage === 1,
-          content: (
-            <PaginationIcon
-              className={
-                iconProps.className || 'pagination__icon pagination__icon-prev'
-              }
-              width={iconProps.width || 51}
-              height={iconProps.height || 12}
-            />
-          ),
-        }}
-      />
-
-      <ul className="pagination__list">
+    <PaginationContainer>
+      <PaginationButton onClick={goPrevPage} disabled={currentPage === 1}>
+        <PrevIcon />
+      </PaginationButton>
+      <PaginationList>
         {pagination.map((page) => (
-          <Button
+          <PaginationLink
             key={page}
-            asListItem
-            liProps={{ className: 'pagination__item' }}
-            btnProps={{
-              className: `pagination__link ${currentPage === page ? 'pagination__link--current' : ''}`,
-              content: page,
-              onClick: changePage(page),
-            }}
-          />
+            isCurrent={page === currentPage}
+            onClick={changePage(page)}
+          >
+            {page}
+          </PaginationLink>
         ))}
-      </ul>
-      <Button
-        btnProps={{
-          className: 'pagination__button pagination__button--next',
-          onClick: goNextPage,
-          disabled: currentPage === totalPages,
-          content: (
-            <PaginationIcon
-              className={
-                iconProps.className || 'pagination__icon pagination__icon-next'
-              }
-              width={iconProps.width || 51}
-              height={iconProps.height || 12}
-            />
-          ),
-        }}
-      />
-    </nav>
+      </PaginationList>
+      <PaginationButton
+        onClick={goNextPage}
+        disabled={currentPage === totalPages}
+      >
+        <NextIcon />
+      </PaginationButton>
+    </PaginationContainer>
   );
 }

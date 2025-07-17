@@ -1,19 +1,17 @@
-import React from 'react';
-
 // массив с перечнем выпадающего списка Pages
 export const dropDownPages = [
-  { label: 'About us', route: 'about' },
-  { label: 'FAQ', route: 'faq' },
-  { label: 'My profile', route: 'profile' },
-  { label: 'Login', route: 'login' },
-  { label: 'Registration', route: 'registration' },
+  { id: 1, label: 'About us', route: 'about' },
+  { id: 2, label: 'FAQ', route: 'faq' },
+  { id: 3, label: 'My profile', route: 'profile' },
+  { id: 4, label: 'Login', route: 'login' },
+  { id: 5, label: 'Registration', route: 'registration' },
 ];
 
 // массив с перечнем выпадающего списка Shop
 export const dropDownShop = [
-  { label: 'All', route: 'shop' },
-  { label: 'Men', route: 'shop' },
-  { label: 'Women', route: 'shop' },
-  { label: 'Accessories', route: 'shop' },
-  { label: 'New Arrival', route: 'shop' },
+  { id: 1, label: 'All', route: 'shop' },
+  { id: 2, label: 'Men', route: 'shop' },
+  { id: 3, label: 'Women', route: 'shop' },
+  { id: 4, label: 'Accessories', route: 'shop' },
+  { id: 5, label: 'New Arrival', route: 'shop' },
 ];

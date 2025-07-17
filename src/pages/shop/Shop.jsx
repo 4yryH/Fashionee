@@ -2,13 +2,22 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Filter } from '../../components/filter/Filter.jsx';
 import { Promo } from '../../components/promo/Promo.jsx';
 import { SaleBanner } from '../../components/sale-banner/SaleBanner.jsx';
-import { SortSelect } from '../../components/ui/sort-select/SortSelect.jsx';
+import { SortSelect } from '../../components/sort-select/SortSelect.jsx';
 import { ProductCard } from '../../components/product-card/ProductCard.jsx';
 import { Pagination } from '../../components/pagination/Pagination.jsx';
 import { filterProducts } from '../../utils/FilterProducts.js';
 import { useDebounce } from '../../hooks/useDebounce.jsx';
 import { sortOptions } from '../../data/SortSelectData.jsx';
-import './Shop.css';
+import {
+  ContentMain,
+  WrapperLeft,
+  ProductsWrapper,
+  Header,
+  ProductsCount,
+  ProductsCountNumber,
+  BodyGrid,
+  SortWrapper,
+} from './Shop.styles';
 
 const PRODUCTS_PER_PAGE = 12;
 
@@ -98,10 +107,9 @@ export function ShopPage({
   const goNextPage = () => {
     setCurrentPage((page) => page + 1);
   };
-
   return (
-    <section className="content-main">
-      <div className="main__wrapper-left">
+    <ContentMain>
+      <WrapperLeft>
         <Filter
           filters={filters}
           onChange={setFilters}
@@ -110,25 +118,24 @@ export function ShopPage({
         />
         <Promo products={products} />
         <SaleBanner />
-      </div>
-      <div className="content-main__products">
-        <div className="content-main__header">
-          <p className="products-count">
+      </WrapperLeft>
+
+      <ProductsWrapper>
+        <Header>
+          <ProductsCount>
             There are{' '}
-            <span className="products-count__number">
-              {sortedProducts.length}
-            </span>{' '}
+            <ProductsCountNumber>{sortedProducts.length}</ProductsCountNumber>{' '}
             products in this category
-          </p>
-          <div className="sort">
+          </ProductsCount>
+          <SortWrapper>
             <SortSelect
               options={sortOptions}
               value={sortOption}
               onChange={setSortOption}
             />
-          </div>
-        </div>
-        <div className="content-main__body">
+          </SortWrapper>
+        </Header>
+        <BodyGrid>
           {currentProducts.map((item) => {
             // сколько уже в корзине
             const inCart = cartItems.find((x) => x.id === item.id);
@@ -137,20 +144,10 @@ export function ShopPage({
             return (
               <ProductCard
                 key={item.id}
-                imgProps={{ src: item.image, alt: item.name }}
-                badgeNewProps={{
-                  className: item.isNew
-                    ? 'product-card__badge product-card__badge--new'
-                    : 'hidden-badge',
-                  content: 'New',
-                }}
-                badgeSaleProps={{
-                  className: item.isSale
-                    ? 'product-card__badge product-card__badge--sale'
-                    : 'hidden-badge',
-                  content: 'Sale',
-                }}
-                titleProps={{ content: item.name }}
+                srcImage={item.image}
+                altImage={item.name}
+                badge={(item.isSale && 'sale') || (item.isNew && 'new')}
+                title={item.name}
                 priceProps={{ price: item.price }}
                 priceOldProps={{ oldPrice: item.oldPrice }}
                 isFavorite={favoriteIds.includes(item.id)}
@@ -161,7 +158,7 @@ export function ShopPage({
               />
             );
           })}
-        </div>
+        </BodyGrid>
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
@@ -169,7 +166,7 @@ export function ShopPage({
           goPrevPage={goPrevPage}
           goNextPage={goNextPage}
         />
-      </div>
-    </section>
+      </ProductsWrapper>
+    </ContentMain>
   );
 }
