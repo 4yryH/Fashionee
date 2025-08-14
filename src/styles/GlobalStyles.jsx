@@ -3,7 +3,7 @@ import RalewayFont from '../assets/fonts/Raleway/Raleway-VariableFont_wght.ttf';
 import JosefinSansFont from '../assets/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf';
 
 export const GlobalStyle = createGlobalStyle`
-    @font-face {
+  @font-face {
     font-family: 'Raleway';
     src: url(${RalewayFont}) format('truetype');
     font-weight: 100 900;

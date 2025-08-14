@@ -26,12 +26,12 @@ yarn.lock
 .env.production.local
 # Файлы с тестами
 coverage/
-*.test.js
-*.spec.js
+#*.test.js
+#*.spec.js
 # Игнорирование конфигурации для ESLint, Prettier (если у вас глобальные конфиги)
 .eslintcache
-prettier.config.js
-eslint.config.js
+#prettier.config.js
+#eslint.config.js
 .prettierrc
 .prettierignore
 .eslintignore
