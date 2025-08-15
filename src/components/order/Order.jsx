@@ -52,7 +52,7 @@ export function Order({
         <List>
           <Item>
             <Label>Order price</Label>
-            <Value>{`$${orderPrice.toFixed(2)}`}</Value>
+            <Value data-testid={'order-price-products'}>{`$${orderPrice.toFixed(2)}`}</Value>
           </Item>
           <Item>
             <Label>Discount for promo code</Label>

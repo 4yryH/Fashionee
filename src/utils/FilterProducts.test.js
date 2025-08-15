@@ -25,9 +25,6 @@ describe('Products filter by colors', () => {
     const filteredByColor = productsList.filter((product) =>
       product.color.toLowerCase() === color.toLowerCase());
 
-    console.log('Результат теста: ', color, filteredByColor.length);
-    console.log('Результат из проекта: ', color, projectResult.length);
-
     expect(projectResult).toEqual(filteredByColor);
   });
 
@@ -49,9 +46,6 @@ describe('Products filter by colors', () => {
 
     const projectResult = filterProducts(productsList, filters);
     const filteredByColor = productsList.filter((product) => colors.includes((product.color).toLowerCase()));
-
-    console.log('Результат теста: ', colors, filteredByColor.length);
-    console.log('Результат из проекта: ', colors, projectResult.length);
 
     expect(projectResult).toEqual(filteredByColor);
   });
@@ -80,9 +74,6 @@ describe('Products filter by categories', () => {
       Array.isArray(product.categories) && product.categories.some((categories) =>
         categories.toLowerCase() === cat.toLowerCase()));
 
-    console.log('Результат теста: ', cat, filteredByCategories.length);
-    console.log('Результат из проекта: ', cat, projectResult.length);
-
     expect(projectResult).toEqual(filteredByCategories);
   });
 });
@@ -107,9 +98,6 @@ describe('Products filter by prices', () => {
 
     const projectResult = filterProducts(productsList, filters);
     const filteredByPrices = productsList.filter((product) => product.price >= prices[0] && product.price <= prices[1]);
-
-    console.log('Результат теста: ', prices, filteredByPrices.length);
-    console.log('Результат из проекта: ', prices, projectResult.length);
 
     expect(projectResult).toEqual(filteredByPrices);
   });
@@ -137,9 +125,6 @@ describe('Products filter by search', () => {
 
     const projectResult = filterProducts(productsList, filters);
     const filteredBySearch = productsList.filter((product) => product.name.toLowerCase().includes(keyWord.toLowerCase()));
-
-    console.log('Результат теста: ', keyWord, filteredBySearch.length);
-    console.log('Результат из проекта: ', keyWord, projectResult.length);
 
     expect(projectResult).toEqual(filteredBySearch);
   });

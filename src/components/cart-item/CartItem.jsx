@@ -27,17 +27,19 @@ export function CartItem({ item, onQuantityChange, onRemove = () => {} }) {
           <PriceBox>
             {/*старая цена рендерится, только если есть*/}
             {item.oldPrice && <OldPrice>${item.oldPrice}</OldPrice>}
-            <CurrentPrice>${item.price}</CurrentPrice>
+            <CurrentPrice data-testid={`cart-item-price`}>${item.price}</CurrentPrice>
           </PriceBox>
           <Wrapper>
             <QuantityWrapper>
               <QuantityButton
+                data-testid={`cart-item-qty-minus`}
                 onClick={() => onQuantityChange(item.id, item.quantity - 1)}
               >
                 -
               </QuantityButton>
-              <QuantityInput>{item.quantity}</QuantityInput>
+              <QuantityInput data-testid={`cart-item-qty`}>{item.quantity}</QuantityInput>
               <QuantityButton
+                data-testid={`cart-item-qty-plus`}
                 onClick={() => onQuantityChange(item.id, item.quantity + 1)}
               >
                 +

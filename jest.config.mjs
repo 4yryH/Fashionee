@@ -92,9 +92,20 @@ const config = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    '^.+\\.(css|sass|scss)$': 'identity-obj-proxy',
-    '^.+\\.(png|jpe?g|gif|webp|avif)$': '<rootDir>/src/test/__mocks__/fileMock.js',
-    '^.+\\.svg$': '<rootDir>/src/test/__mocks__/svgMock.jsx'
+
+    '^@/(.*)$': '<rootDir>/src/$1',
+
+    // CSS → прокси
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+
+    // SVG как React-компонент (Vite: ?react) — ставим ПЕРЕД общим .svg
+    '^.+\\.svg\\?react$': '<rootDir>/src/test/__mocks__/svgrMock.js',
+
+    // SVG и любые файлы как "строка" (Vite: ?url и просто .svg)
+    '^.+\\.svg\\?url$': '<rootDir>/src/test/__mocks__/fileMock.js',
+    '^.+\\.svg$': '<rootDir>/src/test/__mocks__/fileMock.js',
+    '^.+\\.(jpg|jpeg|png|gif|webp|avif|ttf|woff2?)$': '<rootDir>/src/test/__mocks__/fileMock.js',
+
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

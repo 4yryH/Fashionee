@@ -17,6 +17,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-range": "^1.10.0",
+    "react-router-dom": "^7.8.0",
     "react-select": "^5.10.1",
     "styled-components": "^6.1.19"
   },
@@ -27,6 +28,8 @@
     "@babel/preset-react": "^7.27.1",
     "@eslint/js": "^9.25.0",
     "@testing-library/jest-dom": "^6.7.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^30.0.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
